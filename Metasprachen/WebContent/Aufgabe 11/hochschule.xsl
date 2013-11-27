@@ -69,12 +69,13 @@
 	</xsl:template>
 
 	<xsl:template match="note">
-	<xsl:number format="I. " value="position()"/>
+		<xsl:number format="I. " value="position()" />
 		<xsl:value-of select="id(../@vorlesungnr)/titel" />
 		(
 		<xsl:value-of select="../@datum" />
 		):
-		<xsl:value-of select="." /><br/>
+		<xsl:value-of select="." />
+		<br />
 
 	</xsl:template>
 
@@ -87,21 +88,28 @@
 
 	<xsl:template match="dozent">
 		<h2>
-			<xsl:number format="1. " value="position()" />
-			<xsl:apply-templates select="name" />
-			(Dozent-Nummer=
+			<!-- Anker erstellen -->
+			<xsl:text disable-output-escaping="yes">&lt;a name=&quot;</xsl:text>
 			<xsl:value-of select="@dozentnr" />
-			)
+			<xsl:text disable-output-escaping="yes">&quot;&gt;
+		</xsl:text>
+			<!-- Nummerierung -->
+			<xsl:number format="1. " value="position()" />
+			<!-- Name ausgeben -->
+			<xsl:apply-templates select="name" />
+			<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
 		</h2>
+		Dozent-Nummer:
+		<xsl:value-of select="@dozentnr" />
 	</xsl:template>
 
+	<!-- Vorlesungen, Sortierung nach Titel -->
 	<xsl:template match="vorlesungen">
 		<h1>Vorlesungen</h1>
 		<xsl:apply-templates select="vorlesung">
 			<xsl:sort select="titel" />
 		</xsl:apply-templates>
 	</xsl:template>
-
 
 	<xsl:template match="vorlesung">
 		<h2>
@@ -117,9 +125,20 @@
 		<xsl:value-of select="kurzbeschreibung" />
 		<br />
 		Dozent:
+		<!-- Dozentenverknüpfung mit Anker auf entsprechende Stelle -->
+		<xsl:text disable-output-escaping="yes">&lt;a href=&quot;#</xsl:text>
+		<xsl:value-of select="@dozentnr" />
+		<xsl:text disable-output-escaping="yes">&quot;&gt;
+		</xsl:text>
 		<xsl:value-of select="id(@dozentnr)/name" />
+		<xsl:text disable-output-escaping="yes">&lt;/a&gt;
+		</xsl:text>
 		<br />
-		<a href="">Link zur Vorlesung</a>
+		<!-- Link anzeigen -->
+		<xsl:text disable-output-escaping="yes">&lt;a href=&quot;
+		</xsl:text>
+		<xsl:value-of select="link" />
+		<xsl:text disable-output-escaping="yes">&quot;&gt;Link zur Vorlesung&lt;/a&gt;</xsl:text>
 		<br />
 	</xsl:template>
 </xsl:stylesheet>

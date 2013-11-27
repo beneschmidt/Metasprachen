@@ -62,14 +62,14 @@
 		</dozent>
 		<dozent dozentnr="D239">
 			<name>
-				<nachname>Wolfgang</nachname>
-				<vorname>Pauly</vorname>
+				<nachname>Pauly</nachname>
+				<vorname>Wolfgang</vorname>
 			</name>
 		</dozent>
 		<dozent dozentnr="D782">
 			<name>
-				<nachname>André</nachname>
-				<vorname>Miede</vorname>
+				<nachname>Miede</nachname>
+				<vorname>André</vorname>
 			</name>
 		</dozent>
 
@@ -86,7 +86,7 @@
 		<vorlesung vorlesungnr="PIB110" art="Pflicht" dozentnr="D239">
 			<titel>Betriebssystemeinführung</titel>
 			<sws>2</sws>
-			<link>http://moduldb.htw-saarland.de/</link>
+			<link>http://moduldb.htw-saarland.de/cgi-bin/moduldb-c?bkeys=pi&amp;ckeys=pbseinf&amp;lang=de</link>
 		</vorlesung>
 
 		<vorlesung vorlesungnr="PIBWI43" art="Wahl" dozentnr="D782">

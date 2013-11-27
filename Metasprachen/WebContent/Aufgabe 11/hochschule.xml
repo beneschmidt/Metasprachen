@@ -72,6 +72,12 @@
 				<vorname>André</vorname>
 			</name>
 		</dozent>
+		<dozent dozentnr="D313">
+			<name>
+				<nachname>Weber</nachname>
+				<vorname>Damian</vorname>
+			</name>
+		</dozent>
 
 	</dozenten>
 
@@ -94,6 +100,12 @@
 			<sws>2</sws>
 			<kurzbeschreibung>Einführung in die Spieleentwicklung</kurzbeschreibung>
 		</vorlesung>
+		
+		<vorlesung vorlesungnr="PIB423" art="Pflicht" dozentnr="D313">
+			<titel>Systemmanagement und Sicherheit</titel>
+			<sws>2</sws>
+			<link>http://moduldb.htw-saarland.de/cgi-bin/moduldb-c?bkeys=pi&amp;ckeys=sysi&amp;lang=de</link>
+		</vorlesung>
 
 	</vorlesungen>
 
@@ -113,6 +125,10 @@
 			<note matrikelnr="M3583821">9</note>
 			<note matrikelnr="M3583800">13</note>
 			<note matrikelnr="M3583801">20</note>
+		</prüfung>
+		
+		<prüfung datum="2012-01-01" vorlesungnr="PIB423">
+			<note matrikelnr="M3583800">11</note>
 		</prüfung>
 
 	</prüfungen>

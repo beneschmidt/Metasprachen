@@ -1,0 +1,3 @@
+<!ELEMENT autor (vorname, nachname)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE studium SYSTEM "studium.dtd">
+<studium>
+	<student matrikelnummer="M3583821">
+		<name>
+			<vorname>Christian</vorname>
+			<nachname>Backi</nachname>
+		</name>
+		<anschrift art="heimat">
+			<land>DE</land>
+			<plz>66539</plz>
+			<ort>Neunkirchen</ort>
+			<straße>Meine Straße</straße>
+			<hausnummer>1</hausnummer>
+		</anschrift>
+		<anschrift art="semester">
+			<land>DE</land>
+			<plz>66539</plz>
+			<ort>Neunkirchen</ort>
+			<straße>Meine andere Straße</straße>
+			<hausnummer>1</hausnummer>
+		</anschrift>
+	</student>
+	
+	<!-- Dozenten -->
+	<dozent identifier="D0">
+		<name>
+			<vorname>Tim</vorname>
+			<nachname>Steuer</nachname>
+		</name>
+	</dozent>
+	<dozent identifier="D1">
+		<name>
+			<vorname>Emanuel</vorname>
+			<nachname>Kant</nachname>
+		</name>
+	</dozent>
+	
+	<!-- Vorlesungen -->
+	<vorlesung identifier="V0" art="pflicht" dozenten="D0">
+		<titel>Rechnernetze</titel>
+		<sws>4</sws>
+		<kurzbeschreibung>Kurze Beschreibung</kurzbeschreibung>
+	</vorlesung>
+	<vorlesung identifier="V1" art="wahlpflicht" dozenten="D1">
+		<titel>Programmierung 4</titel>
+		<sws>4</sws>
+		<kurzbeschreibung>Programmierung 4 bei Herrn Folz</kurzbeschreibung>
+	</vorlesung>
+	
+	<prüfung vorlesung="V0">
+		<datum>2013-10-10</datum>
+		<teilnahme teilnehmer="M3583821">
+			<note>1</note>
+		</teilnahme>
+	</prüfung>
+</studium>

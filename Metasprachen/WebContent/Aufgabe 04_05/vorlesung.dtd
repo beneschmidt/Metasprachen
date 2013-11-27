@@ -1,0 +1,21 @@
+<!-- Vorlesung -->
+<!ELEMENT vorlesung (titel, sws, (kurzbeschreibung | link))>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT sws (#PCDATA)>
+<!ELEMENT kurzbeschreibung (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+<!ATTLIST vorlesung
+	art (pflicht | wahlpflicht) #REQUIRED
+	dozenten IDREFS #REQUIRED
+	identifier ID #REQUIRED
+>
+
+<!-- Prüfung -->
+<!ELEMENT prüfung (datum, teilnahme*)>
+<!ELEMENT datum (#PCDATA)>
+<!ATTLIST prüfung vorlesung IDREF #REQUIRED>
+
+<!-- Teilnahme -->
+<!ELEMENT teilnahme (note)>
+<!ATTLIST teilnahme teilnehmer IDREF #REQUIRED>
+<!ELEMENT note (#PCDATA)>

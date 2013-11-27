@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE studium SYSTEM "studium.dtd">
+<studium>
+	<student matrikelnummer="M3583999">
+		<name>test</name>
+		<vorname>tt</vorname>
+		<anschrift>
+			<kuerzel>D</kuerzel>
+			<plz>66666</plz>
+			<ort>hell</ort>
+			<strasse>highwayToHell</strasse>
+			<hausnummer>666</hausnummer>
+		</anschrift>
+	</student>
+	<student matrikelnummer="M3583998">
+		<name>blub</name>
+		<vorname>bla</vorname>
+		<anschrift>
+			<kuerzel>D</kuerzel>
+			<plz>66666</plz>
+			<ort>hell</ort>
+			<strasse>highwayToHell</strasse>
+			<hausnummer>666</hausnummer>
+		</anschrift>
+		<anschrift>
+			<kuerzel>D</kuerzel>
+			<plz>66666</plz>
+			<ort>hell</ort>
+			<strasse>goebenstrasse</strasse>
+			<hausnummer>40</hausnummer>
+		</anschrift>
+	</student>
+	<dozent identifier="I1">
+		<name>no</name>
+		<vorname>dr</vorname>
+	</dozent>
+	<vorlesung titel="TI" art="Pflicht" dozent="I1">
+		<semestercount>15</semestercount>
+		<beschreibung>Theoretische Informatik</beschreibung>
+	</vorlesung>
+	<vorlesung titel="MS" art="Wahlpflicht" dozent="I1">
+		<semestercount>14</semestercount>
+		<link>www.htw-deadlink.de</link>
+	</vorlesung>
+	<teilnahme identifier="I2" student="M3583999">
+		<note>20</note>
+	</teilnahme>
+	<teilnahme identifier="I3" student="M3583999">
+		<note>15</note>
+	</teilnahme>
+	<teilnahme identifier="I4" student="M3583998">
+		<note>8</note>
+	</teilnahme>
+	<pruefung vorlesung="TI" teilnehmer="I3 I4">
+		<datum>1.4.2013</datum>
+	</pruefung>
+	<pruefung vorlesung="MS" teilnehmer="I2">
+		<datum>1.4.2013</datum>
+	</pruefung>
+</studium>

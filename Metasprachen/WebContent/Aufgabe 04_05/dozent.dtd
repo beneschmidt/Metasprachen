@@ -1,0 +1,9 @@
+<!-- Dozent -->
+<!ELEMENT dozent (name)> 
+<!ATTLIST dozent identifier ID #REQUIRED>
+
+<!-- Name -->
+<!ELEMENT name (vorname, nachname)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+

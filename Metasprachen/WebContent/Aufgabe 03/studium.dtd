@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT studium (student*, dozent*, vorlesung*, prüfung*)>
+
+<!-- Student -->
+<!ELEMENT student (name, anschrift, anschrift?)>
+<!ATTLIST student matrikelnummer ID #REQUIRED>
+
+<!-- Name -->
+<!ELEMENT name (vorname, nachname)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+
+<!-- Anschrift -->
+<!ELEMENT anschrift (land, plz, ort, straße, hausnummer)>
+<!ATTLIST anschrift art (heimat | semester) #REQUIRED> 
+<!ELEMENT land (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT straße (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>
+
+<!-- Dozent -->
+<!ELEMENT dozent (name)> 
+<!ATTLIST dozent identifier ID #REQUIRED>
+
+<!-- Vorlesung -->
+<!ELEMENT vorlesung (titel, sws, (kurzbeschreibung | link))>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT sws (#PCDATA)>
+<!ELEMENT kurzbeschreibung (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+<!ATTLIST vorlesung
+	art (pflicht | wahlpflicht) #REQUIRED
+	dozenten IDREFS #REQUIRED
+	identifier ID #REQUIRED
+>
+
+<!-- Prüfung -->
+<!ELEMENT prüfung (datum, teilnahme*)>
+<!ELEMENT datum (#PCDATA)>
+<!ATTLIST prüfung vorlesung IDREF #REQUIRED>
+
+<!-- Teilnahme -->
+<!ELEMENT teilnahme (note)>
+<!ATTLIST teilnahme teilnehmer IDREF #REQUIRED>
+<!ELEMENT note (#PCDATA)>

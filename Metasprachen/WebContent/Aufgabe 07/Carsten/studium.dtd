@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!ELEMENT studium (student | dozent | vorlesung | pruefung | teilnahme)*>
+<!ELEMENT student (name,vorname,anschrift,anschrift?)>
+<!ELEMENT anschrift (kuerzel,plz,ort,strasse,hausnummer)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT kuerzel (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT strasse (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>
+
+<!ELEMENT dozent (name,vorname)>
+
+<!ELEMENT vorlesung (semestercount,(beschreibung | link))>
+<!ELEMENT semestercount (#PCDATA)>
+<!ELEMENT beschreibung (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+
+<!ELEMENT pruefung (datum)>
+<!ELEMENT datum (#PCDATA)>
+
+<!ELEMENT teilnahme (note)>
+<!ELEMENT note (#PCDATA)>
+
+<!ATTLIST student
+matrikelnummer	ID	#REQUIRED
+>
+
+<!ATTLIST dozent
+identifier	ID	#REQUIRED
+>
+
+<!ATTLIST vorlesung
+titel	ID			#REQUIRED
+art	(Pflicht | Wahlpflicht)	#REQUIRED
+dozent	IDREF			#REQUIRED
+>
+
+<!ATTLIST pruefung
+vorlesung	IDREF	#REQUIRED
+teilnehmer	IDREFS	#REQUIRED
+>
+
+<!ATTLIST teilnahme
+identifier	ID	#REQUIRED
+student		IDREF	#REQUIRED
+>

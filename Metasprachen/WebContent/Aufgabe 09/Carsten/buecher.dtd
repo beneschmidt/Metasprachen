@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!ELEMENT bücher (buch*)>
+
+<!ELEMENT buch (titel, erscheinungsjahr, autor)>
+<!ATTLIST buch sprache CDATA #REQUIRED>
+
+<!ELEMENT autor (nachname, vorname)>
+<!ATTLIST autor nobelpreis CDATA #IMPLIED>
+
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT erscheinungsjahr (#PCDATA)>
+<!ELEMENT nobelpreis (#PCDATA)>
+<!ELEMENT sprache (#PCDATA)>

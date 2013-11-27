@@ -1,0 +1,17 @@
+<!-- Student -->
+<!ELEMENT student (name, anschrift, anschrift?)>
+<!ATTLIST student matrikelnummer ID #REQUIRED>
+
+<!-- Name -->
+<!ELEMENT name (vorname, nachname)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+
+<!-- Anschrift -->
+<!ELEMENT anschrift (land, plz, ort, straße, hausnummer)>
+<!ATTLIST anschrift art (heimat | semester) #REQUIRED> 
+<!ELEMENT land (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT straße (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>

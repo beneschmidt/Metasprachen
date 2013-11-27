@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studium xmlns="studium.dtd"
+		 xmlns:stud="student.dtd"
+		 xmlns:dozent="dozent.dtd"
+		 xmlns:vorlesung="vorlesung.dtd">
+	<stud:student stud:matrikelnummer="M3583821">
+		<stud:name>
+			<stud:vorname>Vorname</stud:vorname>
+			<stud:nachname>Nachname</stud:nachname>
+		</stud:name>
+		<stud:anschrift stud:art="heimat">
+			<stud:land>DE</stud:land>
+			<stud:plz>66539</stud:plz>
+			<stud:ort>Neunkirchen</stud:ort>
+			<stud:straße>Meine Straße</stud:straße>
+			<stud:hausnummer>1</stud:hausnummer>
+		</stud:anschrift>
+		<stud:anschrift stud:art="semester">
+			<stud:land>DE</stud:land>
+			<stud:plz>66539</stud:plz>
+			<stud:ort>Neunkirchen</stud:ort>
+			<stud:straße>Meine andere Straße</stud:straße>
+			<stud:hausnummer>1</stud:hausnummer>
+		</stud:anschrift>
+	</stud:student>
+	
+	<!-- Dozenten -->
+	<dozent:dozent dozent:identifier="D0">
+		<dozent:name>
+			<dozent:vorname>Der</dozent:vorname>
+			<dozent:nachname>Dozent</dozent:nachname>
+		</dozent:name>
+	</dozent:dozent>
+	<dozent:dozent dozent:identifier="D1">
+		<dozent:name>
+			<dozent:vorname>Herr</dozent:vorname>
+			<dozent:nachname>Folz</dozent:nachname>
+		</dozent:name>
+	</dozent:dozent>
+	
+	<!-- Vorlesungen -->
+	<vorlesung:vorlesung vorlesung:identifier="V0" vorlesung:art="pflicht" vorlesung:dozenten="D0">
+		<vorlesung:titel>Rechnernetze</vorlesung:titel>
+		<vorlesung:sws>4</vorlesung:sws>
+		<vorlesung:kurzbeschreibung>Kurze Beschreibung</vorlesung:kurzbeschreibung>
+	</vorlesung:vorlesung>
+	<vorlesung:vorlesung vorlesung:identifier="V1" vorlesung:art="wahlpflicht" vorlesung:dozenten="D1">
+		<vorlesung:titel>Programmierung 4</vorlesung:titel>
+		<vorlesung:sws>4</vorlesung:sws>
+		<vorlesung:kurzbeschreibung>Programmierung 4 bei Herrn Folz</vorlesung:kurzbeschreibung>
+	</vorlesung:vorlesung>
+	
+	<vorlesung:prüfung vorlesung:vorlesung="V0">
+		<vorlesung:datum>2013-10-10</vorlesung:datum>
+		<vorlesung:teilnahme vorlesung:teilnehmer="M3583821">
+			<vorlesung:note>1</vorlesung:note>
+		</vorlesung:teilnahme>
+	</vorlesung:prüfung>
+</studium>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8">
+<text>
+Zeichendaten innerhalb eines Elementes dürfen kein einzelnes &lt; enthalten, da dieses Zeichen immer ein Tag einleitet. Wenn dieses Zeichen im Text enthalten sein soll, muss es als &amp;lt; geschrieben werden. Dies wird als Referenz auf eine Entität bezeichnet. Außerdem darf das Zeichen &amp; nicht vorkommen. Es muss als &amp;amp; geschrieben werden. Daneben sind noch drei weitere Referenzen definiert:
+
+&amp;gt; für das Zeichen &gt;
+
+&amp;quot; für das Zeichen &quot;
+
+&amp;apos; für das Zeichen &apos;
+
+Beispiel
+
+&lt;buch verlag=&apos;O&amp;apos;Reilly&apos;&gt;
+Zusätzlich zu diesen vordefinierten Referenzen kann man weitere selbst definieren.
+</text>

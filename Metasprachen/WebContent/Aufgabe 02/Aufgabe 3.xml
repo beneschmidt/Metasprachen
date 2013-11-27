@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Stundenplan>
+	<Studium>PI</Studium>
+	<Jahr>3</Jahr>
+	<Tag name="Montag">
+		<Stunde nummer="1">
+			<Fach>Programmierung 4</Fach>
+			<Zusatz>C++</Zusatz>
+			<Professor>H. Folz</Professor>
+			<Raum>9202</Raum>
+			<Raum>8207</Raum>
+		</Stunde>
+		<Stunde nummer="2">
+			<Fach>Compilerbau</Fach>
+			<Professor>R. Güttler</Professor>
+			<Raum>9202</Raum>
+		</Stunde>
+		<Stunde nummer="3">
+			<Fach>Compilerbau</Fach>
+			<Professor>R. Güttler</Professor>
+			<Raum>9202</Raum>
+		</Stunde>
+		<Stunde nummer="4">
+			<Fach>Metasprachen</Fach>
+			<Professor>Th. Kretschmer</Professor>
+			<Raum>8207</Raum>
+		</Stunde>
+	</Tag>
+	
+	<Tag name="Dienstag">
+		<Stunde nummer="1">
+			<Fach>Mikroprozessortechnik</Fach>
+			<Professor>J. Schäfer</Professor>
+			<Raum>4304</Raum>
+		</Stunde>
+		<Stunde nummer="2">
+			<Fach>Mikroprozessortechnik</Fach>
+			<Professor>J. Schäfer</Professor>
+			<Raum>4304</Raum>
+		</Stunde>
+		<Stunde nummer="5">
+			<Fach>Metasprachen</Fach>
+			<Professor>Th. Kretschmer</Professor>
+			<Raum>5204</Raum>
+		</Stunde>
+	</Tag>
+</Stundenplan>

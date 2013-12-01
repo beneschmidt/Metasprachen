@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:output encoding="UTF-8" indent="yes" method="html" />
+	<xsl:output method="html" doctype-system="about:legacy-compat" />
 
 	<xsl:template match="hochschule">
-		<xsl:text disable-output-escaping="yes">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</xsl:text>
-		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</xsl:text>
-		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+		<html>
 			<head>
+				<meta charset="utf-8" />
 				<title>Studium</title>
 			</head>
 			<body>

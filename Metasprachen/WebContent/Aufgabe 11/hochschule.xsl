@@ -3,16 +3,18 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output encoding="UTF-8" indent="yes" method="html" />
 
-	<xsl:variable name="link" select="//vorlesungen/vorlesung/link" />
-
 	<xsl:template match="hochschule">
-		<html>
+		<xsl:text disable-output-escaping="yes">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</xsl:text>
+		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</xsl:text>
+		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 			<head>
 				<title>Studium</title>
 			</head>
 			<body>
 				<xsl:apply-templates select="studenten" />
+				<hr />
 				<xsl:apply-templates select="dozenten" />
+				<hr />
 				<xsl:apply-templates select="vorlesungen" />
 			</body>
 		</html>
@@ -40,6 +42,7 @@
 			select="../../prüfungen/prüfung/note[@matrikelnr=current()/@matrikelnr]" />
 	</xsl:template>
 
+	<!-- Name = Vorname Nachname -->
 	<xsl:template match="name">
 		<xsl:value-of select="vorname" />
 		<xsl:text> </xsl:text>
@@ -69,8 +72,12 @@
 	</xsl:template>
 
 	<xsl:template match="note">
+		<!-- Nummerierung -->
 		<xsl:number format="I. " value="position()" />
-		<xsl:value-of select="id(../@vorlesungnr)/titel" />
+		<!-- Verlinkung auf die Vorlesung -->
+		<a href="#{id(../@vorlesungnr)/@vorlesungnr}">
+			<xsl:value-of select="id(../@vorlesungnr)/titel" />
+		</a>
 		(
 		<xsl:value-of select="../@datum" />
 		):
@@ -79,6 +86,7 @@
 
 	</xsl:template>
 
+	<!-- Dozenten, sortiert nach Name -->
 	<xsl:template match="dozenten">
 		<h1>Dozenten</h1>
 		<xsl:apply-templates select="dozent">
@@ -88,16 +96,13 @@
 
 	<xsl:template match="dozent">
 		<h2>
-			<!-- Anker erstellen -->
-			<xsl:text disable-output-escaping="yes">&lt;a name=&quot;</xsl:text>
-			<xsl:value-of select="@dozentnr" />
-			<xsl:text disable-output-escaping="yes">&quot;&gt;
-		</xsl:text>
-			<!-- Nummerierung -->
-			<xsl:number format="1. " value="position()" />
-			<!-- Name ausgeben -->
-			<xsl:apply-templates select="name" />
-			<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
+			<!-- Anker zum Verlinken -->
+			<a name="{@dozentnr}">
+				<!-- Nummerierung -->
+				<xsl:number format="1. " value="position()" />
+				<!-- Name ausgeben -->
+				<xsl:apply-templates select="name" />
+			</a>
 		</h2>
 		Dozent-Nummer:
 		<xsl:value-of select="@dozentnr" />
@@ -113,11 +118,14 @@
 
 	<xsl:template match="vorlesung">
 		<h2>
-			<xsl:value-of select="titel" />
-			(Nummer:
-			<xsl:value-of select="@vorlesungnr" />
-			)
+			<!-- Anker zum Verlinken -->
+			<a name="{@vorlesungnr}">
+				<xsl:value-of select="titel" />
+			</a>
 		</h2>
+		Vorlesungsnummer:
+		<xsl:value-of select="@vorlesungnr" />
+		<br />
 		Semesterwochenstunden:
 		<xsl:value-of select="sws" />
 		<br />
@@ -126,19 +134,12 @@
 		<br />
 		Dozent:
 		<!-- Dozentenverknüpfung mit Anker auf entsprechende Stelle -->
-		<xsl:text disable-output-escaping="yes">&lt;a href=&quot;#</xsl:text>
-		<xsl:value-of select="@dozentnr" />
-		<xsl:text disable-output-escaping="yes">&quot;&gt;
-		</xsl:text>
-		<xsl:value-of select="id(@dozentnr)/name" />
-		<xsl:text disable-output-escaping="yes">&lt;/a&gt;
-		</xsl:text>
+		<a href="#{@dozentnr}">
+			<xsl:apply-templates select="id(@dozentnr)/name" />
+		</a>
 		<br />
 		<!-- Link anzeigen -->
-		<xsl:text disable-output-escaping="yes">&lt;a href=&quot;
-		</xsl:text>
-		<xsl:value-of select="link" />
-		<xsl:text disable-output-escaping="yes">&quot;&gt;Link zur Vorlesung&lt;/a&gt;</xsl:text>
+		<a href="{link}">Link zur Vorlesung</a>
 		<br />
 	</xsl:template>
 </xsl:stylesheet>

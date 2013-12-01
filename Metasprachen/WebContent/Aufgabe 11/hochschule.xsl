@@ -4,6 +4,9 @@
 	<xsl:output method="html" doctype-system="about:legacy-compat" />
 
 	<xsl:template match="hochschule">
+		<!-- nicht benötigt -->
+		<!-- <xsl:text disable-output-escaping="yes">&lt;?xml version=&quot;1.0&quot; 
+			encoding=&quot;UTF-8&quot;?&gt;</xsl:text> -->
 
 		<html>
 			<head>
@@ -97,7 +100,7 @@
 	<xsl:template match="dozent">
 		<h2>
 			<!-- Anker zum Verlinken -->
-			<a name="{@dozentnr}">
+			<a id="{@dozentnr}">
 				<!-- Nummerierung -->
 				<xsl:number format="1. " value="position()" />
 				<!-- Name ausgeben -->
@@ -119,7 +122,7 @@
 	<xsl:template match="vorlesung">
 		<h2>
 			<!-- Anker zum Verlinken -->
-			<a name="{@vorlesungnr}">
+			<a id="{@vorlesungnr}">
 				<xsl:value-of select="titel" />
 			</a>
 		</h2>

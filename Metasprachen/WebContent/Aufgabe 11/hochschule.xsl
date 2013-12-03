@@ -121,6 +121,7 @@
 
 	<xsl:template match="vorlesung">
 		<h2>
+			<xsl:number format="1. " value="position()" />
 			<!-- Anker zum Verlinken -->
 			<a id="{@vorlesungnr}">
 				<xsl:value-of select="titel" />
@@ -129,11 +130,11 @@
 		Vorlesungsnummer:
 		<xsl:value-of select="@vorlesungnr" />
 		<br />
+		Art:
+		<xsl:value-of select="@art" />
+		<br />
 		Semesterwochenstunden:
 		<xsl:value-of select="sws" />
-		<br />
-		Kurzbeschreibung:
-		<xsl:value-of select="kurzbeschreibung" />
 		<br />
 		Dozent:
 		<!-- Dozentenverknüpfung mit Anker auf entsprechende Stelle -->
@@ -141,8 +142,18 @@
 			<xsl:apply-templates select="id(@dozentnr)/name" />
 		</a>
 		<br />
-		<!-- Link anzeigen -->
-		<a href="{link}">Link zur Vorlesung</a>
+
+		<!-- falls es einen Link gibt, wird dieser angezeigt, ansonsten die Kurzbeschreibung -->
+		<xsl:choose>
+			<xsl:when test="link">
+				<a href="{link}">Link zur Vorlesung</a>
+			</xsl:when>
+			<xsl:otherwise>
+
+				Kurzbeschreibung:
+				<xsl:value-of select="kurzbeschreibung" />
+			</xsl:otherwise>
+		</xsl:choose>
 		<br />
 	</xsl:template>
 </xsl:stylesheet>

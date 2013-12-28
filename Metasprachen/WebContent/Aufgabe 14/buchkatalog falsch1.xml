@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Beseitigen Sie alle Fehler! -->
+<katalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="buchkatalog.xsd">
+
+	<!-- Dieses Buch ist zweimal vorhanden -->
+	<buch signatur="55.3 Har 1.Ex/55.3 Har 2.Ex">
+		<autor>
+			<vorname>Elliotte Rusty</vorname>
+			<nachname>Harold</nachname>
+		</autor>
+		<autor>
+			<vorname>W. Scott</vorname>
+			<nachname>Means</nachname>
+		</autor>
+		<titel>XML in a Nutshell</titel>
+		<!-- Title gehört hier nicht hin -->
+		<title>Titel</title>
+		<verlag>O'Reilly</verlag>
+		<aufnahmedatum>20.01.2003</aufnahmedatum>
+		<bemerkung>Kurz &amp; knapp, aber gut</bemerkung>
+	</buch>
+
+	<!-- ein älteres Buch! -->
+	<buch signatur="55.2 Egg">
+		<autor>
+			<vorname>Bernd</vorname>
+			<nachname>Eggink</nachname>
+		</autor>
+		<!-- Untertitel muss vor den Titel -->
+		<untertitel>Eine systematische Einführung</untertitel>
+		<titel>Kornshell-Programmierung</titel>
+		<verlag>Hanser</verlag>
+		<aufnahmedatum>4.7.1995</aufnahmedatum>
+	</buch>
+
+	<buch signatur="51.0 Schoe">
+		<autor>
+			<!-- vertauscht -->
+			<nachname>Schöning</nachname>
+			<vorname>Uwe</vorname>
+		</autor>
+		<!-- titel und nicht titel2 -->
+		<titel2>Theoretische Informatik - kurzgefasst</titel2>
+		<verlag>Spektrum</verlag>
+		<aufnahmedatum>10.8.2002</aufnahmedatum>
+	</buch>
+</katalog>

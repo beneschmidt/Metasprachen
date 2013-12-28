@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="hochschule">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="studenten" />
+				<xsd:element ref="dozenten" />
+				<xsd:element ref="vorlesungen" />
+				<xsd:element ref="prüfungen" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- STUDENTEN -->
+
+	<xsd:element name="studenten">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="student"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="student">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="name" />
+				<xsd:element name="heimatanschrift" type="adresse" maxOccurs="1" />
+				<xsd:element name="semesteranschrift" type="adresse" minOccurs="0" />
+			</xsd:sequence>
+			<xsd:attribute name="matrikelnr" use="required" type="tMatrikelnr" />
+		</xsd:complexType>
+		<xsd:key name="stundentMatrikelnr">
+			<xsd:selector xpath="hochschule/studenten/student" />
+			<xsd:field xpath="@matrikelnr" />
+		</xsd:key>
+		<xsd:keyref name="stundentMatrikelnrRef" refer="stundentMatrikelnr">
+			<xsd:selector xpath="hochschule/prüfungen/prüfung/note" />
+			<xsd:field xpath="@matrikelnr" />
+		</xsd:keyref>
+	</xsd:element>
+
+	<xsd:element name="name">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="nachname" type="xsd:string" />
+				<xsd:element name="vorname" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- strasse, hausnummer, land?, plz, ort -->
+	<xsd:complexType name="adresse">
+		<xsd:sequence>
+			<xsd:element name="strasse" type="xsd:string" />
+			<xsd:element name="hausnummer" type="xsd:positiveInteger" />
+			<xsd:element name="land" type="xsd:string" minOccurs="0" />
+			<xsd:element name="plz" type="tPostleitzahl" />
+			<xsd:element name="ort" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- DOZENTEN -->
+
+	<xsd:element name="dozenten">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="dozent" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="dozent">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="name" />
+			</xsd:sequence>
+			<xsd:attribute name="dozentnr" use="required" type="tDozentnr" />
+		</xsd:complexType>
+		<xsd:key name="keyDozentnr">
+			<xsd:selector xpath="hochschule/dozenten/dozent" />
+			<xsd:field xpath="@dozentnr" />
+		</xsd:key>
+		<xsd:keyref name="keyDozentnrRef" refer="keyDozentnr">
+			<xsd:selector xpath="vorlesungen/vorlesung" />
+			<xsd:field xpath="@dozentnr" />
+		</xsd:keyref>
+	</xsd:element>
+
+
+	<!-- VORLESUNGEN -->
+
+	<xsd:element name="vorlesungen">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="vorlesung" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="vorlesung">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="titel" type="xsd:string" />
+				<xsd:element name="sws" type="tSws" />
+				<xsd:choice>
+					<xsd:element name="kurzbeschreibung" type="xsd:string" />
+					<xsd:element name="link" type="xsd:string" />
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="vorlesungnr" use="required" type="tVorlesungnr" />
+			<xsd:attribute name="art" type="tVorlesungsart" use="required" />
+			<xsd:attribute name="dozentnr" use="required" />
+		</xsd:complexType>
+		<xsd:key name="keyVorlesungsnr">
+			<xsd:selector xpath="hochschule/vorlesungen/vorlesung" />
+			<xsd:field xpath="@vorlesungnr" />
+		</xsd:key>
+		<xsd:keyref name="keyVorlesungsnrRef" refer="keyVorlesungsnr">
+			<xsd:selector xpath="hochschule/prüfungen/prüfung" />
+			<xsd:field xpath="@vorlesungnr" />
+		</xsd:keyref>
+	</xsd:element>
+
+
+	<!-- PRÜFUNGEN -->
+
+	<xsd:element name="prüfungen">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="prüfung" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="prüfung">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="note" />
+			</xsd:sequence>
+			<xsd:attribute name="datum" type="xsd:date" />
+			<xsd:attribute name="vorlesungnr" type="tVorlesungnr" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="note">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:decimal">
+					<xsd:attribute name="matrikelnr" type="tMatrikelnr" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- TYPEN -->
+
+	<xsd:simpleType name="tPostleitzahl">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d{5}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tSws">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d{1}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tMatrikelnr">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d{7}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tDozentnr">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d{3}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tVorlesungnr">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(\S{3}\d{3})|(\S{5}\d{2})" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tVorlesungsart">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="Wahl|Pflicht" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

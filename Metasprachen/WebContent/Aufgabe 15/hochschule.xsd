@@ -10,6 +10,33 @@
 				<xsd:element ref="prüfungen" />
 			</xsd:sequence>
 		</xsd:complexType>
+		<!-- Studentenreferenz -->
+		<xsd:key name="stundentMatrikelnr">
+			<xsd:selector xpath=".//studenten/student" />
+			<xsd:field xpath="@matrikelnr" />
+		</xsd:key>
+		<xsd:keyref name="stundentMatrikelnrRef" refer="stundentMatrikelnr">
+			<xsd:selector xpath=".//prüfungen/prüfung/note" />
+			<xsd:field xpath="@matrikelnr" />
+		</xsd:keyref>
+		<!-- Vorlesungsreferenz -->
+		<xsd:key name="keyVorlesungsnr">
+			<xsd:selector xpath=".//vorlesungen/vorlesung" />
+			<xsd:field xpath="@vorlesungnr" />
+		</xsd:key>
+		<xsd:keyref name="keyVorlesungsnrRef" refer="keyVorlesungsnr">
+			<xsd:selector xpath=".//prüfungen/prüfung" />
+			<xsd:field xpath="@vorlesungnr" />
+		</xsd:keyref>
+		<!-- Dozentenreferenz -->
+		<xsd:key name="keyDozentnr">
+			<xsd:selector xpath=".//dozenten/dozent" />
+			<xsd:field xpath="@dozentnr" />
+		</xsd:key>
+		<xsd:keyref name="keyDozentnrRef" refer="keyDozentnr">
+			<xsd:selector xpath=".//vorlesungen/vorlesung" />
+			<xsd:field xpath="@dozentnr" />
+		</xsd:keyref>
 	</xsd:element>
 
 	<!-- STUDENTEN -->
@@ -31,14 +58,6 @@
 			</xsd:sequence>
 			<xsd:attribute name="matrikelnr" use="required" type="tMatrikelnr" />
 		</xsd:complexType>
-		<xsd:key name="stundentMatrikelnr">
-			<xsd:selector xpath="hochschule/studenten/student" />
-			<xsd:field xpath="@matrikelnr" />
-		</xsd:key>
-		<xsd:keyref name="stundentMatrikelnrRef" refer="stundentMatrikelnr">
-			<xsd:selector xpath="hochschule/prüfungen/prüfung/note" />
-			<xsd:field xpath="@matrikelnr" />
-		</xsd:keyref>
 	</xsd:element>
 
 	<xsd:element name="name">
@@ -78,14 +97,6 @@
 			</xsd:sequence>
 			<xsd:attribute name="dozentnr" use="required" type="tDozentnr" />
 		</xsd:complexType>
-		<xsd:key name="keyDozentnr">
-			<xsd:selector xpath="hochschule/dozenten/dozent" />
-			<xsd:field xpath="@dozentnr" />
-		</xsd:key>
-		<xsd:keyref name="keyDozentnrRef" refer="keyDozentnr">
-			<xsd:selector xpath="vorlesungen/vorlesung" />
-			<xsd:field xpath="@dozentnr" />
-		</xsd:keyref>
 	</xsd:element>
 
 
@@ -111,16 +122,8 @@
 			</xsd:sequence>
 			<xsd:attribute name="vorlesungnr" use="required" type="tVorlesungnr" />
 			<xsd:attribute name="art" type="tVorlesungsart" use="required" />
-			<xsd:attribute name="dozentnr" use="required" />
+			<xsd:attribute name="dozentnr" use="required" type="tDozentnr" />
 		</xsd:complexType>
-		<xsd:key name="keyVorlesungsnr">
-			<xsd:selector xpath="hochschule/vorlesungen/vorlesung" />
-			<xsd:field xpath="@vorlesungnr" />
-		</xsd:key>
-		<xsd:keyref name="keyVorlesungsnrRef" refer="keyVorlesungsnr">
-			<xsd:selector xpath="hochschule/prüfungen/prüfung" />
-			<xsd:field xpath="@vorlesungnr" />
-		</xsd:keyref>
 	</xsd:element>
 
 

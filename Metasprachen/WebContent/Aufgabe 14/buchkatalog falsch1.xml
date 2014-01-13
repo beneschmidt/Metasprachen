@@ -27,7 +27,7 @@
 			<vorname>Bernd</vorname>
 			<nachname>Eggink</nachname>
 		</autor>
-		<!-- Untertitel muss vor den Titel -->
+		<!-- Untertitel muss nach den Titel -->
 		<untertitel>Eine systematische Einführung</untertitel>
 		<titel>Kornshell-Programmierung</titel>
 		<verlag>Hanser</verlag>
@@ -43,6 +43,18 @@
 		<!-- titel und nicht titel2 -->
 		<titel2>Theoretische Informatik - kurzgefasst</titel2>
 		<verlag>Spektrum</verlag>
+		<aufnahmedatum>10.8.2002</aufnahmedatum>
+	</buch>
+	
+	<buch signatur="51.0 Schoe">
+		<autor>
+			<!-- vertauscht -->
+			<vorname>Uwe</vorname>
+			<nachname>Schöning</nachname>
+		</autor>
+		<!-- titel und nicht titel2 -->
+		<titel>Theoretische Informatik - kurzgefasst</titel>
+		<!-- Verlag fehlt -->
 		<aufnahmedatum>10.8.2002</aufnahmedatum>
 	</buch>
 </katalog>

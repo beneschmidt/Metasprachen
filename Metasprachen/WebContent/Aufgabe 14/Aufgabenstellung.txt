@@ -1,2 +1,6 @@
 Erstellen Sie ein Schema, das die DTD aus Aufgabe 4 ersetzt.
 Testen Sie das Schema anhand richtiger und falscher Dokumente.
+
+Aufgabe 4:
+Erstellen Sie eine inhaltlich möglichst treffende DTD für das XML-Dokument ../bsp/dtd/buchkatalog.xml. Lösen Sie die Aufgabe einmal mit einer internen, 
+einmal mit einer externen und einmal mit einer gemischten (externer und interner Teil) DTD. Validieren Sie jeweils das Dokument mit Xerces.

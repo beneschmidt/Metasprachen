@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hochschule SYSTEM "hochschule.dtd">
+<hochschule>
+	<studenten>
+		<student matrikelnr="S3583767">
+			<name>
+				<nachname>Noll</nachname>
+				<vorname>Kevin</vorname>
+			</name>
+			<adresse art="Heimat">
+				<strasse>Seckentalstrasse</strasse>
+				<hausnummer>19</hausnummer>
+				<land>Deutschland</land>
+				<plz>66440</plz>
+				<ort>NWB</ort>
+			</adresse>
+		</student>
+	</studenten>
+
+	<dozenten>
+		<dozent dozentnr="D1234">
+			<name>
+				<nachname>Folz</nachname>
+				<vorname>Helmut</vorname>
+			</name>
+		</dozent>
+		<dozent dozentnr="D1337">
+			<name>
+				<nachname>Miede</nachname>
+				<vorname>Andre</vorname>
+			</name>
+		</dozent>
+	</dozenten>
+
+	<vorlesungen>
+		<vorlesung dozentnr="D1234" art="Wahl" vorlesungnr="V1">
+			<titel>Metasprachen</titel>
+			<sws>4</sws>
+			<link>http://www.htw-saarland.de</link>
+		</vorlesung>
+	</vorlesungen>
+	
+	<prüfungen>
+		<prüfung datum="15.01.2014" vorlesungnr="V1">
+			<note matrikelnr="S3583767">1.0</note>
+		</prüfung>
+	</prüfungen>
+
+
+
+
+</hochschule>

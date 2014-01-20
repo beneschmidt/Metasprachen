@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Beispiel</title>
+<title>MS Ueb16 KN</title>
 
 <script type="text/javascript">
 	window.onload = start;
 
+	//hier gehts los
 	function start() {
 		var xmlDoc = loadXML("hochschule.xml");
 
@@ -20,7 +21,7 @@
 			body.appendChild(t);
 		}
 
-		// Serialisiere das XML-Dokument zu einem String WIESO BRAUCH ICH DAS?
+		// Serialisiere das XML-Dokument zu einem String
 		// var s = new XMLSerializer();
 		// xml = s.serializeToString(xmlDoc);
 		// document.getElementById("out").textContent = xml;
@@ -29,7 +30,7 @@
 		students = xmlDoc.getElementsByTagName("student");
 
 		var studentenListe = [];
-
+		//studenten durchgehen
 		for (i = 0; i < students.length; i++) {
 			var matrikelNr = students[i].getAttribute("matrikelnr");
 			var lastname = students[i].getElementsByTagName("nachname")[0].childNodes[0].nodeValue;
@@ -41,25 +42,26 @@
 			var mitgeschrieben = 0;
 			var gewichteterSchnitt = 0;
 			
-			prüfungen = xmlDoc.getElementsByTagName("prüfung");
-			//MAGIC; DO NOT TOUCH
-			for (o = 0; o < prüfungen.length; o++) {
-				var vorlesungsNr = prüfungen[o].getAttribute("vorlesungnr");
-				var studentenInPrüfung = prüfungen[o].getElementsByTagName("note");
-				//ab hier weiß ich um welche prüfung es geht
-				for (x = 0; x < studentenInPrüfung.length; x++) {
-					if(studentenInPrüfung[x].getAttribute("matrikelnr").indexOf(matrikelNr) != -1){
-						mitgeschrieben++;
-						//HIER NOCH WAS MACHEN
-						//NOTENSCHNTIT GEWICHTEN
-						var note = parseInt(studentenInPrüfung[x].childNodes[0].nodeValue);
+			var pruefungen = xmlDoc.getElementsByTagName("prüfung");
+			//Pruefungen durchgehen
+			for (o = 0; o < pruefungen.length; o++) {
+				var vorlesungsNr = pruefungen[o].getAttribute("vorlesungnr");
+				var studentenInPruefung = pruefungen[o].getElementsByTagName("note");
+				//studenten fuer jede Pruefung durchgehen
+				for (x = 0; x < studentenInPruefung.length; x++) {
+					//wenn Student in Pruefung
+					if(studentenInPruefung[x].getAttribute("matrikelnr").indexOf(matrikelNr) != -1){
+						var note = parseInt(studentenInPruefung[x].childNodes[0].nodeValue);
 						notensumme += note;
-						if(parseInt(studentenInPrüfung[x].childNodes[0].nodeValue) > 7){
+						//Wenn Student bestanden hat
+						if(parseInt(studentenInPruefung[x].childNodes[0].nodeValue) > 7){
+							mitgeschrieben++;
 							var vorlesungen = xmlDoc.getElementsByTagName("vorlesung");
+							//Vorlesungen durchlaufen um die SWS zu den Pruefungen herauszufinden
 							for(y = 0; y < vorlesungen.length; y++){
-								//ACHTUNG
+								//wenn treffer
 								if(vorlesungen[y].getAttribute("vorlesungnr").indexOf(vorlesungsNr) != -1){
-									//SPRENGUNG
+									//dann aufrechnen
 									var sws = parseInt(vorlesungen[y].getElementsByTagName("sws")[0].childNodes[0].nodeValue);
 									summeSWS += sws;
 									gewichteterSchnitt += sws*note;
@@ -71,22 +73,24 @@
 			}
 			var notenschnitt = notensumme/mitgeschrieben;
 			gewichteterSchnitt = gewichteterSchnitt/summeSWS;
-			//create new student and add to the list
+			//neuen studenten anlegen und auf den stack pushen
 			var stud = new student(firstname, lastname, matrikelNr, mitgeschrieben, summeSWS, notenschnitt, gewichteterSchnitt);
 			studentenListe.push(stud);
 		}
-
+		
+		//stack (liste) sortieren
 		studentenListe.sort(sortStudents);
 
+		//ausgabe der sortierten liste
 		var ul = document.createElement("ul")
 		for (j = 0; j < studentenListe.length; j++) {
 
 			var lastname = document.createTextNode(studentenListe[j].lastname);
-			var firstname = document.createTextNode(studentenListe[j].firstname + " ");
+			var firstname = document.createTextNode("Kompletter Name: " + studentenListe[j].firstname + " ");
 			var matrikelNr = document.createTextNode(studentenListe[j].matrikelNr);
-			var anzahlPrüfungen = document.createTextNode("Mitgeschriebene Prüfungen: "+studentenListe[j].anzahlPrüfungen);
+			var anzahlPruefungen = document.createTextNode("Mitgeschriebene bestandene Pruefungen: "+studentenListe[j].anzahlPruefungen);
 			var notenschnitt = document.createTextNode("Notenschnitt: "+studentenListe[j].notenschnitt);
-			var summeSWS = document.createTextNode("Summe SWS: " + studentenListe[j].summeSemesterWochenStunden);
+			var summeSWS = document.createTextNode("Summe SWS bestandener Vorlesungen: " + studentenListe[j].summeSemesterWochenStunden);
 			var gewichteterSchnitt = document.createTextNode("Gewichteter Schnitt: " + studentenListe[j].gewichteterSchnitt);
 			
 			var subul = document.createElement("ul");
@@ -102,7 +106,7 @@
 			subli.appendChild(firstname);
 			subli.appendChild(lastname);
 			subul.appendChild(subli);
-			subli2.appendChild(anzahlPrüfungen);
+			subli2.appendChild(anzahlPruefungen);
 			subli3.appendChild(notenschnitt);
 			subli4.appendChild(summeSWS);
 			subli5.appendChild(gewichteterSchnitt);
@@ -137,11 +141,11 @@
 		}
 	}
 
-	function student(firstname, lastname, matrikelNr, anzahlPrüfungen, summeSemesterWochenStunden, notenschnitt, gewichteterSchnitt) {
+	function student(firstname, lastname, matrikelNr, anzahlPruefungen, summeSemesterWochenStunden, notenschnitt, gewichteterSchnitt) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.matrikelNr = matrikelNr;
-		this.anzahlPrüfungen = anzahlPrüfungen;
+		this.anzahlPruefungen = anzahlPruefungen;
 		this.summeSemesterWochenStunden = summeSemesterWochenStunden;
 		this.notenschnitt = notenschnitt;
 		this.gewichteterSchnitt = gewichteterSchnitt;

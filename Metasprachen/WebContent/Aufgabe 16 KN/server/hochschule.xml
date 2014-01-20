@@ -112,7 +112,7 @@
 	<!-- Prüfungen -->
 	<prüfungen>
 		<prüfung datum="2013-10-10" vorlesungnr="PIB120">
-			<note matrikelnr="M3583821">15</note>
+			<note matrikelnr="M3583821">5</note>
 			<note matrikelnr="M3583800">16</note>
 			<note matrikelnr="M3583801">12</note>
 		</prüfung>

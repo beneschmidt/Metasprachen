@@ -51,10 +51,10 @@
 				for (x = 0; x < studentenInPruefung.length; x++) {
 					//wenn Student in Pruefung
 					if(studentenInPruefung[x].getAttribute("matrikelnr").indexOf(matrikelNr) != -1){
-						var note = parseInt(studentenInPruefung[x].childNodes[0].nodeValue);
-						notensumme += note;
 						//Wenn Student bestanden hat
 						if(parseInt(studentenInPruefung[x].childNodes[0].nodeValue) > 7){
+							var note = parseInt(studentenInPruefung[x].childNodes[0].nodeValue);
+							notensumme += note;
 							mitgeschrieben++;
 							var vorlesungen = xmlDoc.getElementsByTagName("vorlesung");
 							//Vorlesungen durchlaufen um die SWS zu den Pruefungen herauszufinden

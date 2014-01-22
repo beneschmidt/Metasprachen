@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT katalog (buch*)>
+<!ELEMENT buch (autor+, titel, untertitel*, verlag, aufnahmedatum, bemerkung* )>
+<!ELEMENT autor (vorname, nachname)>
+<!ELEMENT untertitel (#PCDATA)>
+<!ELEMENT verlag (#PCDATA)>
+<!ELEMENT aufnahmedatum (#PCDATA)>
+<!ELEMENT bemerkung (#PCDATA)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+<!ELEMENT titel (#PCDATA)>
+<!ATTLIST buch signatur CDATA #REQUIRED>

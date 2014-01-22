@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hochschule SYSTEM "hochschule.dtd">
+<hochschule>
+	<student matrikelNr="d3583767">
+		<name>
+			<vorname>Kevin</vorname>
+			<nachname>Noll</nachname>
+		</name>
+		<anschrift typ="Heimanschrift">
+			<länderkürzel>DE</länderkürzel>
+			<plz>66440</plz>
+			<ort>Blieskastel</ort>
+			<straße>Seckentalstraße</straße>
+			<hausnummer>19</hausnummer>
+		</anschrift>
+		<anschrift typ="Semesteranschrift">
+			<länderkürzel>DE</länderkürzel>
+			<plz>66440</plz>
+			<ort>Blieskastel</ort>
+			<straße>Seckentalstraße</straße>
+			<hausnummer>19</hausnummer>
+		</anschrift>
+	</student>
+
+	<dozent dozentID="D01">
+		<name>
+			<vorname>André</vorname>
+			<nachname>Miede</nachname>
+		</name>
+	</dozent>
+
+	<vorlesung vorlesungsNr="V01" art="Pflicht" dozentID="D01">
+		<titel>Prog1</titel>
+		<sws>4</sws>
+		<link>http://asd</link>
+	</vorlesung>
+
+	<prüfung vorlesungsNr="V01">
+		<datum>20.01.2014</datum>
+		<teilnehmer matrikelNr="d3583767">
+			<note>20</note>
+		</teilnehmer>
+	</prüfung>
+</hochschule>

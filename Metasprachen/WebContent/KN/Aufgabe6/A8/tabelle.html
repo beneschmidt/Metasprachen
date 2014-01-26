@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+
+<head>
+<meta charset="utf-8" />
+<title>Ein einfaches ployglottes HTML5-Dokument</title>
+</head>
+
+<body>
+
+	<p>Tabelle:</p>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Spalte A</th>
+				<th>Spalte B</th>
+				<th>Spalte C</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="1"><table border="1">
+						<tbody>
+							<tr>
+								<td rowspan="2">a</td>
+								<td>b</td>
+							</tr>
+							<tr>
+								<td>c</td>
+							</tr>
+						</tbody>
+					</table></td>
+				<td rowspan="2"><pre>2 3<br />4 5</pre></td>
+				<td rowspan="4"><img alt="Wespe"
+					src="D:\Google%20Drive\5.%20Semester\Metasprachen\Kretschmer\Skript\bsp\xhtml\wespe.jpg"
+					width="60"/></td>
+			</tr>
+			<tr>
+				<td>A</td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="http://www.w3.org">W3</a></td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td rowspan="2">Hier steht Text</td>
+			</tr>
+			<tr>
+				<td>D</td>
+				<td>E</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

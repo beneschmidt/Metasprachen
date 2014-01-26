@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hochschule xmlns="hochschule.dtd" 
+	xmlns:stud="student.dtd"
+	xmlns:doz="dozent.dtd"
+	xmlns:vorl="vorlesung.dtd">
+	<stud:student stud:matrikelNr="d3583767">
+		<stud:name>
+			<stud:vorname>Kevin</stud:vorname>
+			<stud:nachname>Noll</stud:nachname>
+		</stud:name>
+		<stud:anschrift stud:typ="Heimanschrift">
+			<stud:länderkürzel>DE</stud:länderkürzel>
+			<stud:plz>66440</stud:plz>
+			<stud:ort>Blieskastel</stud:ort>
+			<stud:straße>Seckentalstraße</stud:straße>
+			<stud:hausnummer>19</stud:hausnummer>
+		</stud:anschrift>
+		<stud:anschrift stud:typ="Semesteranschrift">
+			<stud:länderkürzel>DE</stud:länderkürzel>
+			<stud:plz>66440</stud:plz>
+			<stud:ort>Blieskastel</stud:ort>
+			<stud:straße>Seckentalstraße</stud:straße>
+			<stud:hausnummer>19</stud:hausnummer>
+		</stud:anschrift>
+	</stud:student>
+
+	<doz:dozent doz:dozentID="D01">
+		<doz:name>
+			<doz:vorname>André</doz:vorname>
+			<doz:nachname>Miede</doz:nachname>
+		</doz:name>
+	</doz:dozent>
+
+	<vorl:vorlesung vorl:vorlesungsNr="V01" vorl:art="Pflicht" vorl:dozentID="D01">
+		<vorl:titel>Prog1</vorl:titel>
+		<vorl:sws>4</vorl:sws>
+		<vorl:link>http://asd</vorl:link>
+	</vorl:vorlesung>
+
+	<prüfung vorlesungsNr="V01">
+		<datum>20.01.2014</datum>
+		<teilnehmer matrikelNr="d3583767">
+			<note>20</note>
+		</teilnehmer>
+	</prüfung>
+</hochschule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT hochschule (student, dozent, vorlesung, prüfung)>
+
+<!ELEMENT prüfung (datum, teilnehmer*)>
+<!ATTLIST prüfung vorlesungsNr IDREF #REQUIRED>
+<!ELEMENT datum (#PCDATA)>
+<!ELEMENT teilnehmer (note)>
+<!ATTLIST teilnehmer matrikelNr IDREF #REQUIRED>
+<!ELEMENT note (#PCDATA)>

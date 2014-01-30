@@ -1,0 +1,3 @@
+Hier finden Sie den Stundenplan für Informatik. 
+Setzen Sie die Informationen für PI-3 (montags, dienstags) in ein XML-Dokument um. 
+Der Aufbau des XML-Dokumentes sollte dem Inhalt möglichst gerecht werden.

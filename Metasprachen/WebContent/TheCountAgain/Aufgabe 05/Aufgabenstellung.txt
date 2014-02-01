@@ -1,0 +1,15 @@
+Erstellen Sie eine inhaltlich möglichst treffende DTD für ein XML-Dokument, das Informationen über Studenten, Dozenten, Vorlesungen und Prüfungen enthält. 
+Machen Sie dabei Gebrauch von IDREF's, um Redundanz zu vermeiden. Erstellen Sie weiterhin ein Beispieldokument, 
+das alle Möglichkeiten der DTD benutzt und validieren Sie das Dokument mit Xerces.
+
+Beschreibung der Daten:
+
+Für Studierende sind folgende Informationen vorhanden: Name, Vorname, Matrikelnummer, Heimatanschrift und evtl. Semesteranschrift. 
+Eine Anschrift besteht aus evtl. Länderkürzel, Postleitzahl, Ort, Straße und Hausnummer. Für beide Anschriften gibt es nur einen Elementtyp, der über ein Attribut unterschieden wird.
+
+Für Dozenten gibt es Name und Vorname.
+
+Bei Vorlesungen ist abzuspeichern der Titel, Art der Vorlesung (Pflicht oder Wahlpflicht), Anzahl Semesterwochenstunden und der Dozent.
+Außerdem gibt es entweder eine Kurzbeschreibung oder einen Link auf ein Skript.
+
+Weiterhin gibt es Informationen über Prüfungen: Vorlesung, Datum der Prüfung, Teilnehmer und ihre Note

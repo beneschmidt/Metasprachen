@@ -1,0 +1,23 @@
+<!ELEMENT hochschule (studenten, dozenten, vorlesungen, prüfungen)>
+<!ELEMENT studenten (student+)>
+<!ELEMENT student (name, anschrift, anschrift?)>
+<!ELEMENT anschrift (land?, plz, ort, strasse, hausnummer)>
+<!ELEMENT land (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT strasse (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>
+<!ATTLIST anschrift
+	typ (heim | semester) #REQUIRED>
+
+<!ELEMENT dozenten (dozent+)>
+
+
+<!ELEMENT vorlesungen (vorlesung+)>
+
+
+<!ELEMENT prüfungen (prüfung+)>
+
+<!ELEMENT name (nachname, vorname)>
+<!ELEMENT nachname (#PCDATA)>
+<!ELEMENT vorname (#PCDATA)>

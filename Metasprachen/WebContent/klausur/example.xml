@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- externe DTD -->
-<!DOCTYPE wurzel SYSTEM "example.dtd">
+<!-- externe DTD einbinden, Wurzelknoten "wurzel" -->
+<!DOCTYPE benutzer [
+<!ELEMENT name (vorname, nachname)*>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+<!ATTLIST name alter CDATA #REQUIRED>
+]>
 
 <!-- Wurzelelement, darf nur genau eines geben! -->
-<wurzel>
-
-</wurzel>
+<!-- ACHTUNG: die Reihenfolge laut DTD muss eingehalten werden -->
+<benutzer>
+	<name alter="17">
+		<vorname>Max</vorname>
+		<nachname>Power</nachname>
+	</name>
+	
+	<name alter="21">
+		<vorname>Dr</vorname>
+		<nachname>Mundo</nachname>
+	</name>
+</benutzer>

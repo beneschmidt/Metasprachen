@@ -1,0 +1,10 @@
+<!ELEMENT vorlesungen (vorlesung+)>
+<!ELEMENT vorlesung (titel, sws, (kurzbeschreibung | link))>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT sws (#PCDATA)>
+<!ELEMENT kurzbeschreibung (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+<!ATTLIST vorlesung
+			dozentnr IDREF #REQUIRED
+			typ (pflicht | wahlpflicht) #REQUIRED
+			vorlesungnr ID #REQUIRED>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hochschule  [
+
+	<!ENTITY % hochschule-prefix "hs">
+	<!ATTLIST hochschule xmlns:hs CDATA #REQUIRED>
+	
+	<!ELEMENT hochschule (hs:studenten, dozenten, vorlesungen, prüfungen)>
+	<!ELEMENT name (nachname, vorname)>
+	<!ELEMENT nachname (#PCDATA)>
+	<!ELEMENT vorname (#PCDATA)>
+
+	<!ENTITY % studentenDTD SYSTEM "studenten.dtd">
+	%studentenDTD;
+	<!ENTITY % dozentenDTD SYSTEM "dozenten.dtd">
+	%dozentenDTD;
+	<!ENTITY % vorlesungenDTD SYSTEM "vorlesungen.dtd">
+	%vorlesungenDTD;
+	<!ENTITY % prüfungenDTD SYSTEM "prüfungen.dtd">
+	%prüfungenDTD;
+]
+>
+<!-- ACHTUNG: Namensraum nicht fertig! -->
+<hochschule xmlns:hs="http://www.htw-saarland.de/ns/bsp">
+	<hs:studenten>
+		<student matrikelnr="M3583821">
+			<name>
+				<nachname>Schmidt</nachname>
+				<vorname>Benedikt</vorname>
+			</name>
+			<anschrift typ="heim">
+				<land>DE</land>
+				<plz>66539</plz>
+				<ort>Neunkirchen</ort>
+				<strasse>Zum Bremmenfeld 14</strasse>
+				<hausnummer>14</hausnummer>
+			</anschrift>
+		</student>
+	</hs:studenten>
+	<dozenten>
+		<dozent dozentnr="D123">
+			<name>
+				<nachname>Folz</nachname>
+				<vorname>Helmut</vorname>
+			</name>
+		</dozent>
+	</dozenten>
+	<vorlesungen>
+		<vorlesung typ="pflicht" dozentnr="D123" vorlesungnr="V123">
+			<titel>Titel</titel>
+			<sws>3</sws>
+			<link>gibts net</link>
+		</vorlesung>
+	</vorlesungen>
+	<prüfungen>
+		<prüfung datum="heute" vorlesung="V123">
+			<note teilnehmer="M3583821">1</note>
+		</prüfung>
+	</prüfungen>
+
+</hochschule>

@@ -1,0 +1,32 @@
+<!-- normale Element-Definition -->
+<!ELEMENT wurzel (einmal, mindestensEinmal+, mehrmals*, keinOrderEinmal?)>
+
+<!-- normaler Text als Inhalt -->
+<!ELEMENT einmal (#PCDATA)>
+<!ELEMENT mindestensEinmal (#PCDATA)>
+<!ELEMENT mehrmals (#PCDATA)>
+<!ELEMENT keinOrderEinmal (#PCDATA)>
+
+<!-- Attribute -->
+<!ATTLIST einmal
+		name		CDATA 	#REQUIRED
+		typ			CDATA 	#REQUIRED
+		optAuswahl	(a | b) #IMPLIED
+		festerWert	CDATA 	#FIXED "Fester Wert">
+
+<!-- gemischter Inhalt -->
+<!-- Achtung, PCDATA immer zuerst, und nach der Klammer ein * -->
+<!ELEMENT gemischterInhalt (#PCDATA | wasAnderes)*>
+<!ELEMENT wasAnderes (#PCDATA)>
+
+<!-- allgemeine Entität zum Sparen von Text in der xml -->
+<!ENTITY ls "Das ist ein langer Satz">
+
+<!-- Parameter-Entitäten zum Sparen von Text in der dtd -->
+<!ENTITY % name "vorname, nachname">
+<!ELEMENT student (%name;, matrnr)>
+<!ELEMENT dozent (%name;)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+<!ELEMENT matrnr (#PCDATA)>
+

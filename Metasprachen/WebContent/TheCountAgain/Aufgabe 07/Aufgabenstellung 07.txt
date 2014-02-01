@@ -1,0 +1,5 @@
+Schreiben Sie in einer UTF-8-kodierten XML-Datei je zweimal das russische Wort für Kongress, das französische Wort été (Sommer) und das chinesische Zeichen für Mitte. 
+Verwenden Sie zum einen Zeichenreferenzen und zum anderen die Zeichen selbst. Der verwendete Editor muss dazu UTF-8 unterstützen. 
+Überzeugen Sie sich, dass die Datei UTF-8-kodiert ist.
+
+Wandeln Sie die Datei mit einem Tool Ihrer Wahl in UTF-16 und UTF-32 um und schauen Sie sich auf Byteebene stichprobenartig den Inhalt an.

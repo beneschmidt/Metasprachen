@@ -1,0 +1,8 @@
+<!ELEMENT prüfungen (prüfung+)>
+<!ELEMENT prüfung (note*)>
+<!ATTLIST prüfung 
+			vorlesung IDREF #REQUIRED
+			datum CDATA #REQUIRED>
+<!ELEMENT datum (#PCDATA)>
+<!ELEMENT note (#PCDATA)>
+<!ATTLIST note teilnehmer IDREF #REQUIRED>

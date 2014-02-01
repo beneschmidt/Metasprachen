@@ -1,0 +1,3 @@
+<!ELEMENT dozenten (dozent+)>
+<!ELEMENT dozent (name)>
+<!ATTLIST dozent dozentnr ID #REQUIRED>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hochschule SYSTEM "hochschule.dtd">
+<hochschule>
+	<studenten>
+		<student matrikelnr="M3583821">
+			<name>
+				<nachname>Backi</nachname>
+				<vorname>Christian</vorname>
+			</name>
+			<anschrift typ="heim">
+				<land>DE</land>
+				<plz>66539</plz>
+				<ort>Neunkirchen</ort>
+				<strasse>Meine Straße</strasse>
+				<hausnummer>1</hausnummer>
+			</anschrift>
+			<anschrift typ="semester">
+				<land>DE</land>
+				<plz>66539</plz>
+				<ort>Neunkirchen</ort>
+				<strasse>Meine andere Straße</strasse>
+				<hausnummer>1</hausnummer>
+			</anschrift>
+		</student>
+		
+		<student matrikelnr="M3583822">
+			<name>
+				<nachname>Schmidt</nachname>
+				<vorname>Benedikt</vorname>
+			</name>
+			<anschrift typ="heim">
+				<land>DE</land>
+				<plz>66539</plz>
+				<ort>Neunkirchen</ort>
+				<strasse>Meine Straße</strasse>
+				<hausnummer>1</hausnummer>
+			</anschrift>
+		</student>
+	</studenten>
+
+	<!-- Dozenten -->
+	<dozenten>
+		<dozent dozentnr="D0">
+			<name>
+				<nachname>Steuer</nachname>
+				<vorname>Tim</vorname>
+			</name>
+		</dozent>
+		<dozent dozentnr="D1">
+			<name>
+				<nachname>Kant</nachname>
+				<vorname>Emanuel</vorname>
+			</name>
+		</dozent>
+	</dozenten>
+
+	<vorlesungen>
+		<vorlesung vorlesungnr="V0" typ="pflicht" dozentnr="D0">
+			<titel>Rechnernetze</titel>
+			<sws>4</sws>
+			<kurzbeschreibung>Kurze Beschreibung</kurzbeschreibung>
+		</vorlesung>
+		<vorlesung vorlesungnr="V1" typ="wahlpflicht" dozentnr="D1">
+			<titel>Programmierung 4</titel>
+			<sws>4</sws>
+			<kurzbeschreibung>Programmierung 4 bei Herrn Folz</kurzbeschreibung>
+		</vorlesung>
+	</vorlesungen>
+	<!-- Vorlesungen -->
+
+	<prüfungen>
+		<prüfung vorlesung="V0" datum="2013-10-10">
+			<note teilnehmer="M3583821">1</note>
+			<note teilnehmer="M3583822">1</note>
+		</prüfung>
+	</prüfungen>
+</hochschule>

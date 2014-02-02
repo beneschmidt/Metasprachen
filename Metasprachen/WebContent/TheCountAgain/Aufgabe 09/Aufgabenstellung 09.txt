@@ -1,0 +1,3 @@
+Lesen Sie in der HTML5-Spezifikation die Bedeutung von map und area nach und erstellen Sie ein illustrierendes Beispiel für die 
+Verwendung dieser Elemente. Verwenden Sie alle Möglichkeiten für shape. Das Beispiel soll polyglott sein. 
+Validieren Sie das Dokument online als HTML5 und überprüfen Sie mit Xerces die Wohlgeformtheit als XML-Dokument.

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="katalog">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="buch" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="buch">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="autor" />
+				<xsd:element name="titel" type="xsd:string"/>
+				<xsd:element name="untertitel" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="verlag" type="xsd:string" />
+				<xsd:element name="aufnahmedatum" type="xsd:string"/>
+				<xsd:element name="bemerkung" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="signatur" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="autor">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="vorname" type="xsd:string" />
+				<xsd:element name="nachname" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

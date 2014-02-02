@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Beseitigen Sie alle Fehler! -->
+<hochschule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="A15.xsd">
+	<studenten>
+		<student matrikelnr="3583767">
+			<name>
+				<vorname>Kevin</vorname>
+				<nachname>Noll</nachname>
+			</name>
+			<Heimatadresse>
+				<strasse>Seckentalstrasse</strasse>
+				<hausnummer>19</hausnummer>
+				<land>DE</land>
+				<plz>66440</plz>
+				<ort>NWB</ort>
+			</Heimatadresse>
+		</student>
+	</studenten>
+	<dozenten>
+		<dozent dozentnr="D01">
+			<name>
+				<vorname>Andre</vorname>
+				<nachname>Miede</nachname>
+			</name>
+		</dozent>
+	</dozenten>
+	<vorlesungen>
+		<vorlesung dozentnr="D01" vorlesungnr="V01" art="Wahl">
+			<titel>GDD</titel>
+			<sws>5</sws>
+			<kurzbeschreibung>cool</kurzbeschreibung>
+		</vorlesung>
+	</vorlesungen>
+	<prüfungen>
+		<prüfung datum="11.02.2014" vorlesungnr="V01">
+			<note matrikelnr="3583767">
+				20
+			</note>
+		</prüfung>
+	</prüfungen>
+</hochschule>

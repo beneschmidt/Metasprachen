@@ -1,0 +1,13 @@
+Schreiben Sie ein XSLT-Stylesheet, mit dem Sie XML-Dokumente, die der DTD bsp/dtd/hochschule.dtd genügen, in ein übersichtliches XHTML-Dokument verwandeln können. 
+Dabei sollen alle Informationen, die im XML-Dokument enthalten sind, im XHTML-Dokument vorkommen. 
+Die Studenten, Dozenten und Vorlesungen sollen alphabetisch nach Name bzw. Titel sortiert werden und numeriert sein. 
+Bei jedem/r Student/in soll die Liste seiner/ihrer abgelegten Prüfungen aufgeführt werden. 
+Die Prüfungen sollen innerhalb eines Studenten mit römischen Ziffern numeriert sein. Die Numerierungen sollen mit XSLT erzeugt werden.
+
+Erzeugen Sie polyglottes XHTML 5.0. Validieren Sie das Ergebnis online als HTML5. Verwenden Sie zum Transformieren Xalan.
+
+Die ID-Referenzen sollen aufgelöst werden, d.h. bei einer Vorlesung z.B. steht nicht die ID des Dozenten, sondern sein Name und Vorname. 
+Ausserdem soll bei jeder aufgelösten Referenz ein funktionierender Link auf die entsprechenden Stammdaten vorhanden sein, 
+also im Beispiel ein Link auf den betreffenden Dozenten im Dokument. 
+Erfassen Sie in Ihrem Beispieldokument mindestens je drei Studenten, Dozenten und Vorlesungen und 
+pro Student mindestens drei Teilnahmen an Prüfungen. Die Daten im Beispieldokument sollen noch nicht wie gefordert sortiert sein

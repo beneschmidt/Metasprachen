@@ -1,0 +1,12 @@
+<!ELEMENT studenten (student+)>
+<!ELEMENT student (name, anschrift, anschrift?)>
+<!ATTLIST student matrikelnr ID #REQUIRED>
+
+<!ELEMENT anschrift (land?, plz, ort, strasse, hausnummer)>
+<!ELEMENT land (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT strasse (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>
+<!ATTLIST anschrift
+	typ (heim | semester) #REQUIRED>

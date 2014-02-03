@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT hochschule (student*, dozent*, vorlesung*, prüfung*)>
+
+<!ELEMENT student (name, anschrift, anschrift?)>
+<!ATTLIST student matrikelNr ID #REQUIRED>
+
+<!ELEMENT anschrift (länderkürzel?, plz, ort, straße, hausnummer)>
+<!ATTLIST anschrift typ (Heimanschrift | Semesteranschrift) #REQUIRED>
+<!ELEMENT länderkürzel (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT straße (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>
+
+
+<!ELEMENT name (vorname, nachname)>
+<!ATTLIST dozent dozentID ID #REQUIRED>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+
+<!ELEMENT dozent (name)>
+
+<!ELEMENT vorlesung (titel, sws, (kurzbeschreibung | link))>
+<!ATTLIST vorlesung 
+		vorlesungsNr ID #REQUIRED
+		art (Pflicht | Wahlpflicht) #REQUIRED
+		dozentID IDREF #REQUIRED>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT sws (#PCDATA)>
+<!ELEMENT kurzbeschreibung (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+
+<!ELEMENT prüfung (datum, teilnehmer*)>
+<!ATTLIST prüfung vorlesungsNr IDREF #REQUIRED>
+<!ELEMENT datum (#PCDATA)>
+<!ELEMENT teilnehmer (note)>
+<!ATTLIST teilnehmer matrikelNr IDREF #REQUIRED>
+<!ELEMENT note (#PCDATA)>

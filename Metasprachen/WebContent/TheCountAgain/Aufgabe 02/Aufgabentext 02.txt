@@ -1,0 +1,18 @@
+Schreiben Sie ein XML-Element <text>, 
+das als Zeichendaten den Text des weiter oben im Skript befindlichen Abschnitts "Referenzen auf Entitäten" enthält. Verwenden Sie keinen CDATA-Abschnitt.
+
+TEXT:
+2.1.5. Referenzen auf Entitäten
+
+Zeichendaten innerhalb eines Elementes dürfen kein einzelnes < enthalten, da dieses Zeichen immer ein Tag einleitet. Wenn dieses Zeichen im Text enthalten sein soll, muss es als &lt; geschrieben werden. Dies wird als Referenz auf eine Entität bezeichnet. Außerdem darf das Zeichen & nicht vorkommen. Es muss als &amp; geschrieben werden. Daneben sind noch drei weitere Referenzen definiert:
+
+&gt; für das Zeichen >
+
+&quot; für das Zeichen "
+
+&apos; für das Zeichen '
+
+Beispiel
+
+<buch verlag='O&apos;Reilly'>
+Zusätzlich zu diesen vordefinierten Referenzen kann man weitere selbst definieren.

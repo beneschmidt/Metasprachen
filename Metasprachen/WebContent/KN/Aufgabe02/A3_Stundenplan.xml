@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stundenplan>
+	<pi3 context="pflicht+wahlpflicht">
+		<wochentag tag="montag">
+			<vorlesung stunde="1">
+				<titel>Programmierung 4 (C++)</titel>
+				<dozent>H. Folz</dozent>
+				<raum>9202+8207</raum>
+			</vorlesung>
+			<vorlesung stunde="2">
+				<titel>Compilerbau</titel>
+				<dozent>R. Güttler</dozent>
+				<raum>9202</raum>
+			</vorlesung>
+			<vorlesung stunde="3">
+				<titel>Compilerbau</titel>
+				<dozent>R. Güttler</dozent>
+				<raum>9202</raum>
+			</vorlesung>
+			<vorlesung stunde="4">
+				<titel>Metasprachen</titel>
+				<dozent>T. Kretschmer</dozent>
+				<raum>8207</raum>
+			</vorlesung>
+		</wochentag>
+		<wochentag tag="dienstag">
+			<vorlesung stunde="1">
+				<titel>Programmierung 4 (C++)</titel>
+				<dozent>H. Folz</dozent>
+				<raum>9202+8207</raum>
+			</vorlesung>
+			<vorlesung stunde="2">
+				<titel>Compilerbau</titel>
+				<dozent>R. Güttler</dozent>
+				<raum>9202</raum>
+			</vorlesung>
+			<vorlesung stunde="5">
+				<titel>Metasprachen</titel>
+				<dozent>T. Kretschmer</dozent>
+				<raum>8207</raum>
+			</vorlesung>
+		</wochentag>
+	</pi3>
+</stundenplan>

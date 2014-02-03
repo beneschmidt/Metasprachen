@@ -1,0 +1,8 @@
+Schreiben Sie ein XSLT-Stylesheet, mit dem Sie XML-Dokumente, die der DTD aus der Aufgabe 5 genügen, 
+in ein übersichtliches XHTML-Dokument verwandeln können. Erzeugen Sie polyglottes XHTML 5.0. 
+Validieren Sie das Ergebnis online als HTML5. Verwenden Sie zum Transformieren Xalan.
+
+Alle Informationen, die im XML-Dokument enthalten sind, müssen im XHTML-Dokument vorkommen. 
+Die Studenten, Dozenten und Vorlesungen sollen alphabetisch nach Name bzw. Titel sortiert werden.
+Die ID-Referenzen sollen nicht aufgelöst werden, 
+d.h. die Werte von Attributen mit dem Typ IDREF werden ohne Änderung angezeigt.

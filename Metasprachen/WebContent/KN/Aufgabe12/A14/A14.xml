@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Beseitigen Sie alle Fehler! -->
+<katalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="A14.xsd">
+	<buch>
+		<autor>
+			<vorname>asd</vorname>
+			<nachname>asd</nachname>
+		</autor>
+		<titel>asd</titel>
+		<untertitel>asd</untertitel>
+		<verlag>asd</verlag>
+		<aufnahmedatum>asdasd</aufnahmedatum>
+		<bemerkung>tewtset</bemerkung>
+	</buch>
+</katalog>

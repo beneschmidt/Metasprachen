@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stundenplan>
+	<tag name="Montag">
+		<vorlesung stunde="1">
+			<name>Programmierung 4</name>
+			<dozent>Herr Folz</dozent>
+			<raum>9202+8207</raum>
+		</vorlesung>
+		<vorlesung stunde="2">
+			<name>Compilerbau</name>
+			<dozent>Herr Güttler</dozent>
+			<raum>9202</raum>
+		</vorlesung>
+		<vorlesung stunde="3">
+			<name>Compilerbau</name>
+			<dozent>Herr Güttler</dozent>
+			<raum>9202</raum>
+		</vorlesung>
+		<vorlesung stunde="4">
+			<name>Metasprachen</name>
+			<dozent>Herr Kretschmer</dozent>
+			<raum>8207</raum>
+		</vorlesung>
+	</tag>
+	<tag name="Dienstag">
+		<vorlesung stunde="1">
+			<name>Mikroprozessortechnik</name>
+			<dozent>Herr Schäfer</dozent>
+			<raum>4301</raum>
+		</vorlesung>
+		<vorlesung stunde="2">
+			<name>Mikroprozessortechnik</name>
+			<dozent>Herr Schäfer</dozent>
+			<raum>4301</raum>
+		</vorlesung>
+	</tag>
+</stundenplan>

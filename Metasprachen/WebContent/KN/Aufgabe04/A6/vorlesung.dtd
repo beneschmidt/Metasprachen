@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT vorlesung (titel, sws, (kurzbeschreibung | link))>
+<!ATTLIST vorlesung 
+		vorlesungsNr ID #REQUIRED
+		art (Pflicht | Wahlpflicht) #REQUIRED
+		dozentID IDREF #REQUIRED>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT sws (#PCDATA)>
+<!ELEMENT kurzbeschreibung (#PCDATA)>
+<!ELEMENT link (#PCDATA)>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT student (name, anschrift, anschrift?)>
+<!ATTLIST student matrikelNr ID #REQUIRED>
+
+<!ELEMENT anschrift (länderkürzel?, plz, ort, straße, hausnummer)>
+<!ATTLIST anschrift typ (Heimanschrift | Semesteranschrift) #REQUIRED>
+<!ELEMENT länderkürzel (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT straße (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>
+
+<!ELEMENT name (vorname, nachname)>
+
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>

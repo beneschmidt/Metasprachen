@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hochschule SYSTEM "hochschule.dtd">
+<hochschule>
+	<student matrikelNr="d3583767">
+		<name>
+			<vorname>Kevin</vorname>
+			<nachname>Noll</nachname>
+		</name>
+		<anschrift typ="Heimanschrift">
+			<länderkürzel>DE</länderkürzel>
+			<plz>66440</plz>
+			<ort>Blieskastel</ort>
+			<straße>Seckentalstrasse</straße>
+			<hausnummer>19</hausnummer>
+		</anschrift>
+		<anschrift typ="Semesteranschrift">
+			<länderkürzel>DE</länderkürzel>
+			<plz>66440</plz>
+			<ort>Blieskastel</ort>
+			<straße>Seckentalstrasse</straße>
+			<hausnummer>19</hausnummer>
+		</anschrift>
+	</student>
+	<student matrikelNr="d123456">
+		<name>
+			<vorname>Chirs</vorname>
+			<nachname>Backi</nachname>
+		</name>
+		<anschrift typ="Heimanschrift">
+			<länderkürzel>DE</länderkürzel>
+			<plz>66386</plz>
+			<ort>IGB</ort>
+			<straße>Blastr</straße>
+			<hausnummer>123</hausnummer>
+		</anschrift>
+		<anschrift typ="Semesteranschrift">
+			<länderkürzel>DE</länderkürzel>
+			<plz>66111</plz>
+			<ort>SB</ort>
+			<straße>Unistr</straße>
+			<hausnummer>1</hausnummer>
+		</anschrift>
+	</student>
+
+	<dozent dozentID="D01">
+		<name>
+			<vorname>André</vorname>
+			<nachname>Miede</nachname>
+		</name>
+	</dozent>
+	<dozent dozentID="D02">
+		<name>
+			<vorname>Helmut</vorname>
+			<nachname>Folz</nachname>
+		</name>
+	</dozent>
+
+	<vorlesung vorlesungsNr="V01" art="Pflicht" dozentID="D01">
+		<titel>Prog1</titel>
+		<sws>4</sws>
+		<link>http://asd</link>
+	</vorlesung>
+		<vorlesung vorlesungsNr="V02" art="Wahlpflicht" dozentID="D02">
+		<titel>Prog2</titel>
+		<sws>3</sws>
+		<kurzbeschreibung>wurst</kurzbeschreibung>
+	</vorlesung>
+
+	<prüfung vorlesungsNr="V01">
+		<datum>20.01.2014</datum>
+		<teilnehmer matrikelNr="d3583767">
+			<note>20</note>
+		</teilnehmer>
+	</prüfung>
+		<prüfung vorlesungsNr="V02">
+		<datum>20.01.2015</datum>
+		<teilnehmer matrikelNr="d123456">
+			<note>5</note>
+		</teilnehmer>
+	</prüfung>
+</hochschule>

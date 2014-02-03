@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- externe DTD einbinden, Wurzelknoten "wurzel" -->
+<!DOCTYPE wurzel SYSTEM "example.dtd">
+
+<!-- Wurzelelement, darf nur genau eines geben! -->
+<!-- ACHTUNG: die Reihenfolge laut DTD muss eingehalten werden -->
+<wurzel>
+
+	<!-- hier was mit Attributen -->
+	<einmal name="Einmal" typ="normaler Typ">hier steht nur Text</einmal>
+	<mindestensEinmal/>
+	
+	<!-- darf ruhig mehrmals vorkommen, aber dann nur direkt hintereinander -->
+	<mehrmals/>
+	<mehrmals/>
+	
+	<!-- darf wirklich nur kein oder einmal vorkommen -->
+	<keinOrderEinmal/>
+	
+</wurzel>

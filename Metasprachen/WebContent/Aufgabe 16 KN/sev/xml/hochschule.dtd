@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!ELEMENT hochschule (studenten, dozenten, vorlesungen, prüfungen)>
+<!ELEMENT studenten (student*)>
+<!ELEMENT dozenten (dozent*)>
+<!ELEMENT vorlesungen (vorlesung*)>
+<!ELEMENT prüfungen (prüfung*)>
+
+<!-- Name -->
+<!ELEMENT name (nachname, vorname)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+
+<!-- Adresse -->
+<!ELEMENT adresse (strasse, hausnummer, land?, plz, ort)>
+<!ATTLIST adresse
+	art (Heimat | Semester) #REQUIRED
+>
+<!ELEMENT strasse (#PCDATA)>
+<!ELEMENT hausnummer (#PCDATA)>
+<!ELEMENT land (#PCDATA)>
+<!ELEMENT plz (#PCDATA)>
+<!ELEMENT ort (#PCDATA)>
+
+<!-- Student -->
+<!ELEMENT student (name, adresse, adresse?)>
+<!ATTLIST student
+	matrikelnr ID #REQUIRED
+>
+
+<!-- Dozent -->
+<!ELEMENT dozent (name)>
+<!ATTLIST dozent
+	dozentnr ID #REQUIRED
+>
+
+<!-- Vorlesung -->
+<!ELEMENT vorlesung (titel, sws, (kurzbeschreibung|link))>
+<!ATTLIST vorlesung
+	vorlesungnr ID #REQUIRED
+	art (Wahl | Pflicht) #REQUIRED
+	dozentnr IDREF #REQUIRED
+>
+
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT sws (#PCDATA)>
+<!ELEMENT kurzbeschreibung (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+
+<!-- Prüfung -->
+<!ELEMENT prüfung (note*)>
+<!ATTLIST prüfung
+	datum CDATA #REQUIRED
+	vorlesungnr IDREF #REQUIRED
+>
+
+<!-- Note -->
+<!ELEMENT note (#PCDATA)>
+<!ATTLIST note
+	matrikelnr IDREF #REQUIRED
+>

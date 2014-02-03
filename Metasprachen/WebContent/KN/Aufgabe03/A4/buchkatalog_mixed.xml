@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE katalog SYSTEM "buchkatalog_mixed.dtd"[
+<!ELEMENT katalog (buch*)>
+<!ELEMENT buch (autor+, titel, untertitel*, verlag, aufnahmedatum, bemerkung* )>
+<!ELEMENT autor (vorname,nachname)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+]>
+<!-- Beseitigen Sie alle Fehler! -->
+<katalog>
+
+	<!-- Dieses Buch ist zweimal vorhanden -->
+	<buch signatur="55.3 Har 1.Ex/55.3 Har 2.Ex">
+		<autor>
+			<vorname>Elliotte Rusty</vorname>
+			<nachname>Harold</nachname>
+		</autor>
+		<autor>
+			<vorname>W. Scott</vorname>
+			<nachname>Means</nachname>
+		</autor>
+		<titel>XML in a Nutshell</titel>
+		<verlag>O'Reilly</verlag>
+		<aufnahmedatum>20.01.2003</aufnahmedatum>
+		<bemerkung>Kurz &amp; knapp, aber gut</bemerkung>
+	</buch>
+
+	<!-- ein älteres Buch! -->
+	<buch signatur="55.2 Egg">
+		<autor>
+			<vorname>Bernd</vorname>
+			<nachname>Eggink</nachname>
+		</autor>
+		<titel>Kornshell-Programmierung</titel>
+		<untertitel>Eine systematische Einführung</untertitel>
+		<verlag>Hanser</verlag>
+		<aufnahmedatum>4.7.1995</aufnahmedatum>
+	</buch>
+
+	<buch signatur="51.0 Schoe">
+		<autor>
+			<vorname>Uwe</vorname>
+			<nachname>Schöning</nachname>
+		</autor>
+		<titel>Theoretische Informatik - kurzgefasst</titel>
+		<verlag>Spektrum</verlag>
+		<aufnahmedatum>10.8.2002</aufnahmedatum>
+	</buch>
+</katalog>

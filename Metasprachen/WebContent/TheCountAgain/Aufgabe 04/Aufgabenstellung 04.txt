@@ -1,0 +1,3 @@
+Erstellen Sie eine inhaltlich möglichst treffende DTD für das XML-Dokument ../bsp/dtd/buchkatalog.xml. 
+Lösen Sie die Aufgabe einmal mit einer internen, einmal mit einer externen und einmal mit einer gemischten (externer und interner Teil) DTD. 
+Validieren Sie jeweils das Dokument mit Xerces.

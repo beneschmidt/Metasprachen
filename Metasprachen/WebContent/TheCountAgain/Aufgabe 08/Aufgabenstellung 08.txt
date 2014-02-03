@@ -1,0 +1,2 @@
+Erstellen Sie ein polyglottes HTML5-Dokument für diese Tabelle. 
+Validieren Sie das Dokument online als HTML5 und überprüfen Sie mit Xerces die Wohlgeformtheit als XML-Dokument.

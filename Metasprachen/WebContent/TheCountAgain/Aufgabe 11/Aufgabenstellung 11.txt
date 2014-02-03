@@ -1,0 +1,4 @@
+Erstellen Sie aus der Datei autoren.xml eine XML-Datei aller deutschsprachigen Nobelpreisträger. 
+Die Sortierung erfolgt nach der Jahreszahl der Nobelpreises. 
+Für jeden Nobelpreisträger werden als Kindelemente mit genau der folgenden Schreibweise angegeben: 
+Name, Vorname, JahrNobelpreis.

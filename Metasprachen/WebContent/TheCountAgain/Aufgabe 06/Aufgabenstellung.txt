@@ -1,0 +1,4 @@
+Schreiben Sie die DTD der Aufgabe 5 so um, dass die Teil-DTDs für Studenten, Dozenten und Vorlesungen in separaten Dateien liegen. 
+Formulieren Sie die Regeln der DTD weiterhin so, dass jedes Element ein Namensraumpräfix besitzt. 
+Dieses Präfix soll für alle Elemente dasselbe Präfix sein. Gestalten Sie die DTD so flexibel, dass es genügt, eine einzige Regel zu ändern, um ein anderes Präfix zu verwenden. 
+Testen Sie Ihre DTD mit zwei Beispieldokumenten mit unterschiedlichem Namensraumpräfix und validieren Sie mit Xerces.

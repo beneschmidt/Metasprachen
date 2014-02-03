@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE katalog SYSTEM "hochschule.dtd">
-<hochschule>
+<hochschule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="hochschule.xsd">
 
 	<!-- Studenten -->
 	<studenten>
-		<student matrikelnr="M3583821">
+		<student matrikelnr="3583821">
 			<name>
 				<nachname>Schmidt</nachname>
 				<vorname>Benedikt</vorname>
 			</name>
-			<adresse art="Heimat">
+			<heimatadresse>
 				<strasse>Zum Bremmenfeld</strasse>
 				<hausnummer>14</hausnummer>
 				<land>DE</land>
 				<plz>66539</plz>
 				<ort>Neunkirchen</ort>
-			</adresse>
-			<adresse art="Semester">
+			</heimatadresse>
+			<semesteradresse>
 				<strasse>Hauptstraße</strasse>
 				<hausnummer>12</hausnummer>
 				<land>Deutschland</land>
 				<plz>66539</plz>
 				<ort>Neunkirchen</ort>
-			</adresse>
+			</semesteradresse>
 		</student>
-		<student matrikelnr="M3583800">
+		<student matrikelnr="3583800">
 			<name>
 				<nachname>Noll</nachname>
 				<vorname>Kevin</vorname>
 			</name>
-			<adresse art="Heimat">
+			<heimatadresse>
 				<strasse>Parkstraße</strasse>
 				<hausnummer>1</hausnummer>
 				<land>DE</land>
 				<plz>123456</plz>
 				<ort>Heimat</ort>
-			</adresse>
+			</heimatadresse>
 		</student>
-		<student matrikelnr="M3583801">
+		<student matrikelnr="3583801">
 			<name>
 				<nachname>Backes</nachname>
 				<vorname>Christian</vorname>
 			</name>
-			<adresse art="Heimat">
+			<heimatadresse>
 				<strasse>Lindenallee</strasse>
 				<hausnummer>21</hausnummer>
 				<land>DE</land>
 				<plz>66538</plz>
 				<ort>Neunkirchen</ort>
-			</adresse>
+			</heimatadresse>
 		</student>
 	</studenten>
 
@@ -100,7 +100,7 @@
 			<sws>2</sws>
 			<kurzbeschreibung>Einführung in die Spieleentwicklung</kurzbeschreibung>
 		</vorlesung>
-		
+
 		<vorlesung vorlesungnr="PIB423" art="Pflicht" dozentnr="D313">
 			<titel>Systemmanagement und Sicherheit</titel>
 			<sws>2</sws>
@@ -112,23 +112,23 @@
 	<!-- Prüfungen -->
 	<prüfungen>
 		<prüfung datum="2013-10-10" vorlesungnr="PIB120">
-			<note matrikelnr="M3583821">15</note>
-			<note matrikelnr="M3583800">16</note>
-			<note matrikelnr="M3583801">12</note>
+			<note matrikelnr="3583821">15</note>
+			<note matrikelnr="3583800">16</note>
+			<note matrikelnr="3583801">12</note>
 		</prüfung>
 		<prüfung datum="2012-12-12" vorlesungnr="PIB110">
-			<note matrikelnr="M3583821">10</note>
-			<note matrikelnr="M3583800">12</note>
-			<note matrikelnr="M3583801">20</note>
+			<note matrikelnr="3583821">10</note>
+			<note matrikelnr="3583800">12</note>
+			<note matrikelnr="3583801">20</note>
 		</prüfung>
 		<prüfung datum="2011-11-11" vorlesungnr="PIBWI43">
-			<note matrikelnr="M3583821">9</note>
-			<note matrikelnr="M3583800">13</note>
-			<note matrikelnr="M3583801">20</note>
+			<note matrikelnr="3583821">9</note>
+			<note matrikelnr="3583800">13</note>
+			<note matrikelnr="3583801">20</note>
 		</prüfung>
-		
+
 		<prüfung datum="2012-01-01" vorlesungnr="PIB423">
-			<note matrikelnr="M3583800">11</note>
+			<note matrikelnr="3583800">11</note>
 		</prüfung>
 
 	</prüfungen>

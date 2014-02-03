@@ -1,0 +1,1 @@
+Erstellen Sie ein Schema, das die DTD aus Aufgabe 4 ersetzt. Testen Sie das Schema anhand richtiger und falscher Dokumente.

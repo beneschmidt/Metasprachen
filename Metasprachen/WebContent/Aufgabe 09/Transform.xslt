@@ -26,7 +26,7 @@
 		<xsl:copy>
 			<xsl:copy-of select="./nachname" />
 			<xsl:copy-of select="./vorname" />
-			<xsl:if test="nobelpreis">
+			<xsl:if test="./nobelpreis">
 				<xsl:attribute name="nobelpreis">
 					<xsl:value-of select="./nobelpreis"/>
 				</xsl:attribute>

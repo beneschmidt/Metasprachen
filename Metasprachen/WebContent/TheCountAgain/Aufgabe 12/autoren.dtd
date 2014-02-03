@@ -1,0 +1,9 @@
+<!ELEMENT autoren (autor*)>
+<!ELEMENT autor (nachname, vorname, nobelpreis?, sprache, buch+)>
+<!ELEMENT buch (titel, erscheinungsjahr)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT erscheinungsjahr (#PCDATA)>
+<!ELEMENT nobelpreis (#PCDATA)>
+<!ELEMENT sprache (#PCDATA)>

@@ -1,7 +1,7 @@
 Transformieren Sie die Datei autoren.xml in eine XML-Datei mit anderem Aufbau: 
 Statt autoren autor buch ist die Reihenfolge im Baum bücher buch autor. 
 Dabei sollen die Bücher nach dem Erscheinungsjahr sortiert sein. 
-nnerhalb eines Jahres erfolgt die Sortierung nach dem Nachnamen des Autors. 
+Innerhalb eines Jahres erfolgt die Sortierung nach dem Nachnamen des Autors. 
 Wenn ein Autor den Nobelpreis erhalten hat, soll die Jahreszahl als Attributwert 
 des Attributes nobelpreis im Element autor erscheinen. 
 Hat der Autor keinen Nobelpreis, so fehlt das Attribut nobelpreis. 

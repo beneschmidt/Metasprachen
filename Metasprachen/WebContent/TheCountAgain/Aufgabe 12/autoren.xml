@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE autoren SYSTEM "autoren.dtd">
+<autoren>
+	<autor>
+		<nachname>Prudhomme</nachname>
+		<vorname>Sully</vorname>
+		<nobelpreis>1901</nobelpreis>
+		<sprache>französisch</sprache>
+		<buch>
+			<titel>sp t1888</titel>
+			<erscheinungsjahr>1888</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Hauptmann</nachname>
+		<vorname>Gerhard</vorname>
+		<nobelpreis>1912</nobelpreis>
+		<sprache>deutsch</sprache>
+		<buch>
+			<titel>gh t1900</titel>
+			<erscheinungsjahr>1900</erscheinungsjahr>
+		</buch>
+		<buch>
+			<titel>gh t1901</titel>
+			<erscheinungsjahr>1901</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>France</nachname>
+		<vorname>Anatol</vorname>
+		<nobelpreis>1921</nobelpreis>
+		<sprache>französisch</sprache>
+		<buch>
+			<titel>af t1900</titel>
+			<erscheinungsjahr>1900</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Lagerlöf</nachname>
+		<vorname>Selma</vorname>
+		<nobelpreis>1909</nobelpreis>
+		<sprache>schwedisch</sprache>
+		<buch>
+			<titel>sl t1900</titel>
+			<erscheinungsjahr>1900</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Hemingway</nachname>
+		<vorname>Ernest</vorname>
+		<nobelpreis>1954</nobelpreis>
+		<sprache>englisch</sprache>
+		<buch>
+			<titel>eh t1965</titel>
+			<erscheinungsjahr>1965</erscheinungsjahr>
+		</buch>
+		<buch>
+			<titel>eh t1951</titel>
+			<erscheinungsjahr>1951</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Cornwell</nachname>
+		<vorname>Patricia</vorname>
+		<sprache>englisch</sprache>
+		<buch>
+			<titel>From Potter's Field</titel>
+			<erscheinungsjahr>1995</erscheinungsjahr>
+		</buch>
+		<buch>
+			<titel>pc t1995</titel>
+			<erscheinungsjahr>1995</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Böll</nachname>
+		<vorname>Heinrich</vorname>
+		<nobelpreis>1972</nobelpreis>
+		<sprache>deutsch</sprache>
+		<buch>
+			<titel>hb t1969</titel>
+			<erscheinungsjahr>1969</erscheinungsjahr>
+		</buch>
+		<buch>
+			<titel>hb t1965</titel>
+			<erscheinungsjahr>1965</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Gide</nachname>
+		<vorname>André</vorname>
+		<nobelpreis>1947</nobelpreis>
+		<sprache>französisch</sprache>
+		<buch>
+			<titel>ag t1945</titel>
+			<erscheinungsjahr>1945</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Mann</nachname>
+		<vorname>Thomas</vorname>
+		<nobelpreis>1929</nobelpreis>
+		<sprache>deutsch</sprache>
+		<buch>
+			<titel>tm t1930</titel>
+			<erscheinungsjahr>1930</erscheinungsjahr>
+		</buch>
+		<buch>
+			<titel>tm t1910</titel>
+			<erscheinungsjahr>1910</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Mann</nachname>
+		<vorname>Heinrich</vorname>
+		<sprache>deutsch</sprache>
+		<buch>
+			<titel>hm t1920</titel>
+			<erscheinungsjahr>1920</erscheinungsjahr>
+		</buch>
+	</autor>
+
+	<autor>
+		<nachname>Faulkner</nachname>
+		<vorname>William</vorname>
+		<nobelpreis>1949</nobelpreis>
+		<sprache>englisch</sprache>
+		<buch>
+			<titel>wf t1930</titel>
+			<erscheinungsjahr>1930</erscheinungsjahr>
+		</buch>
+		<buch>
+			<titel>wf t1932</titel>
+			<erscheinungsjahr>1932</erscheinungsjahr>
+		</buch>
+	</autor>
+
+</autoren>

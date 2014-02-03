@@ -117,7 +117,7 @@
 				<xsd:element name="sws" type="tSws" />
 				<xsd:choice>
 					<xsd:element name="kurzbeschreibung" type="xsd:string" />
-					<xsd:element name="link" type="xsd:string" />
+					<xsd:element name="link" type="xsd:anyURI" />
 				</xsd:choice>
 			</xsd:sequence>
 			<xsd:attribute name="vorlesungnr" use="required" type="tVorlesungnr" />

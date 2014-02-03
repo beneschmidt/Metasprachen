@@ -19,7 +19,7 @@
 				<xsd:element name="aufnahmedatum" type="xsd:string" />
 				<xsd:element name="bemerkung" minOccurs="0" type="xsd:string" />
 			</xsd:sequence>
-			<xsd:attribute name="signatur" type="xsd:string" />
+			<xsd:attribute name="signatur" type="xsd:string" use="required" />
 		</xsd:complexType>
 	</xsd:element>
 

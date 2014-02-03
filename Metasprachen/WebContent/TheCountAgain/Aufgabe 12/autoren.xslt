@@ -5,6 +5,7 @@
 	<xsl:template match="autoren">
 		<bücher>
 			<xsl:apply-templates select="autor/buch">
+				<!-- Sortierung erst nach Jahr, dann nach Nachname -->
 				<xsl:sort select="erscheinungsjahr" data-type="number"
 					order="ascending" />
 				<xsl:sort select="../nachname" data-type="text" order="ascending" />
@@ -14,6 +15,7 @@
 
 	<xsl:template match="buch">
 		<xsl:copy>
+			<!-- Attribut-Angaben müssen immer ganz am Anfang stehen! -->
 			<xsl:attribute name="sprache">
 				<xsl:value-of select="../sprache" />
 			</xsl:attribute>
@@ -26,6 +28,7 @@
 
 	<xsl:template match="autor">
 		<xsl:copy>
+			<!-- Attribut nur anzeigen, wenn Element vorhanden -->
 			<xsl:if test="nobelpreis">
 				<xsl:attribute name="nobelpreis">
 					<xsl:value-of select="./nobelpreis" />

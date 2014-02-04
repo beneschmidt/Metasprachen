@@ -24,7 +24,6 @@
 
 		// Array für Studenten anlegen
 		var studentenListe = [];
-		var i;
 		for (i = 0; i < allStudenten.length; i++) {
 			var currentStudent = allStudenten[i];
 			var matrikelNr = currentStudent.getAttribute("matrikelnr");
@@ -34,7 +33,7 @@
 			var sumOfGrades = 0;
 			var numberOfGrades = 0;
 			var gSchnitt = 0;
-			var sumOfSws = 0;
+			var sumOfSws = parseInt(0);
 
 			var pruefungen = xml.getElementsByTagName("pruefung");
 			for (j = 0; j < pruefungen.length; j++) {
@@ -46,9 +45,6 @@
 				var currentGradeValue = 0;
 				for (k = 0; k < allGrades.length; k++) {
 					var currentGrade = allGrades[k];
-					var mat = document.createTextNode(currentGrade
-							.getAttribute("matrikelnr"));
-					body.appendChild(mat);
 					if (currentGrade.getAttribute("matrikelnr") == matrikelNr) {
 						currentGradeValue = currentGrade.childNodes[0].nodeValue;
 						if (currentGradeValue <= 7) {
@@ -65,8 +61,8 @@
 					for (m = 0; m < allVorlesungen.length; m++) {
 						var currentVorlesung = allVorlesungen[m];
 						if (currentVorlesung.getAttribute("vorlesungnr") == vorlesungnrOfCurrentPruefung) {
-							var sws = currentVorlesung
-									.getElementsByTagName("sws")[0].childNodes[0].nodeValue;
+							var sws = parseInt(currentVorlesung
+									.getElementsByTagName("sws")[0].childNodes[0].nodeValue);
 							gSchnitt += currentGradeValue * sws;
 							sumOfSws += sws;
 						}
@@ -81,17 +77,26 @@
 			studentenListe.push(htmlStudent);
 		}
 
-		var unsortedList = document.createElement("ul");
+		studentenListe.sort(function(a, b) {
+			return a.gewichteterSchnitt - b.gewichteterSchnitt;
+		});
+
+		var table = document.createElement("table");
+		table.setAttribute("border", "1");
+
+		// Header der Tabelle
+		var thead = document.createElement("thead");
+		thead.appendChild(header());
+		table.appendChild(thead);
+
 		var j;
 		for (j = 0; j < studentenListe.length; j++) {
-			var li = document.createElement("li");
 
-			var toString = document.createTextNode(studentenListe[j].toString);
-			li.appendChild(toString);
-			unsortedList.appendChild(li);
+			var tableRow = studentToTableRow(studentenListe[j]);
+			table.appendChild(tableRow);
 		}
 
-		body.appendChild(unsortedList);
+		body.appendChild(table);
 	}
 
 	function loadXML(filename) {
@@ -124,13 +129,34 @@
 		this.anzahlPruefungen = anzahlPruefungen;
 		this.summeSemesterWochenStunden = summeSemesterWochenStunden;
 		this.gewichteterSchnitt = gewichteterSchnitt;
+	}
 
-		function toString() {
-			var String = firstname + " " + lastname + ", " + matrikelNr + ", "
-					+ anzahlPruefungen + ", " + summeSemesterWochenStunden
-					+ ", " + gewichteterSchnitt;
-			return String;
-		}
+	function studentToTableRow(student) {
+		var tr = document.createElement("tr");
+		tr.appendChild(createTdElement(student.firstname));
+		tr.appendChild(createTdElement(student.lastname));
+		tr.appendChild(createTdElement(student.matrikelNr));
+		tr.appendChild(createTdElement(student.anzahlPruefungen));
+		tr.appendChild(createTdElement(student.summeSemesterWochenStunden));
+		tr.appendChild(createTdElement(student.gewichteterSchnitt));
+		return tr;
+	}
+
+	function header() {
+		var tr = document.createElement("tr");
+		tr.appendChild(createTdElement("Vorname"));
+		tr.appendChild(createTdElement("Nachname"));
+		tr.appendChild(createTdElement("Matrikelnummer"));
+		tr.appendChild(createTdElement("Anzahl best. Prüfungen"));
+		tr.appendChild(createTdElement("Summe SWS"));
+		tr.appendChild(createTdElement("Gewichteter Schnitt"));
+		return tr;
+	}
+
+	function createTdElement(text) {
+		var fntd = document.createElement("td");
+		fntd.appendChild(document.createTextNode(text));
+		return fntd;
 	}
 </script>
 </head>

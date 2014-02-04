@@ -1,52 +1,99 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta content="utf-8" />
 <title>Aufgabe 16</title>
 <script type="text/javascript">
-
 	window.onload = start;
 
 	function start() {
 		var xml = loadXML("hochschule.xml");
-		
+
 		var body = document.getElementsByTagName("BODY")[0];
 		var br = document.createElement("br");
 		var titleStudentenliste = document.createTextNode("Studentenliste");
-		
+
 		body.appendChild(br).appendChild(titleStudentenliste);
-		
-		if(xml==null){
-			body.appendChild(document.createTextNode("leider XML nicht gefunden"));
+
+		if (xml == null) {
+			body.appendChild(document
+					.createTextNode("leider XML nicht gefunden"));
 		}
-		
+
 		var allStudenten = xml.getElementsByTagName("student");
-		
+
 		// Array für Studenten anlegen
-		var studentenListe =[];
+		var studentenListe = [];
 		var i;
-		for(i=0; i < allStudenten.length; i++){
+		for (i = 0; i < allStudenten.length; i++) {
 			var currentStudent = allStudenten[i];
 			var matrikelNr = currentStudent.getAttribute("matrikelnr");
 			var vorname = currentStudent.getElementsByTagName("vorname")[0].childNodes[0].nodeValue;
 			var nachname = currentStudent.getElementsByTagName("nachname")[0].childNodes[0].nodeValue;
-			
-			var htmlStudent = new student(vorname, nachname, matrikelNr, 0, 0, 0);
+
+			var sumOfGrades = 0;
+			var numberOfGrades = 0;
+			var gSchnitt = 0;
+			var sumOfSws = 0;
+
+			var pruefungen = xml.getElementsByTagName("pruefung");
+			for (j = 0; j < pruefungen.length; j++) {
+				var currentPruefung = pruefungen[j];
+				var vorlesungnrOfCurrentPruefung = currentPruefung
+						.getAttribute("vorlesungnr");
+
+				var allGrades = currentPruefung.getElementsByTagName("note");
+				var currentGradeValue = 0;
+				for (k = 0; k < allGrades.length; k++) {
+					var currentGrade = allGrades[k];
+					var mat = document.createTextNode(currentGrade
+							.getAttribute("matrikelnr"));
+					body.appendChild(mat);
+					if (currentGrade.getAttribute("matrikelnr") == matrikelNr) {
+						currentGradeValue = currentGrade.childNodes[0].nodeValue;
+						if (currentGradeValue <= 7) {
+							currentGradeValue = 0;
+						}
+						break;
+					}
+				}
+				if (currentGradeValue != 0) {
+					sumOfGrades += currentGradeValue;
+					numberOfGrades++;
+
+					var allVorlesungen = xml.getElementsByTagName("vorlesung");
+					for (m = 0; m < allVorlesungen.length; m++) {
+						var currentVorlesung = allVorlesungen[m];
+						if (currentVorlesung.getAttribute("vorlesungnr") == vorlesungnrOfCurrentPruefung) {
+							var sws = currentVorlesung
+									.getElementsByTagName("sws")[0].childNodes[0].nodeValue;
+							gSchnitt += currentGradeValue * sws;
+							sumOfSws += sws;
+						}
+					}
+				}
+			}
+
+			gSchnitt /= sumOfSws;
+
+			var htmlStudent = new student(vorname, nachname, matrikelNr,
+					numberOfGrades, sumOfSws, gSchnitt);
 			studentenListe.push(htmlStudent);
 		}
-		
+
 		var unsortedList = document.createElement("ul");
 		var j;
-		for(j=0; j<studentenListe.length; j++){
+		for (j = 0; j < studentenListe.length; j++) {
 			var li = document.createElement("li");
-			
-			var toString = studentenListe[j].firstname;
+
+			var toString = document.createTextNode(studentenListe[j].toString);
 			li.appendChild(toString);
-			unsortedList.appendChild(nextListItem);
+			unsortedList.appendChild(li);
 		}
-		
+
 		body.appendChild(unsortedList);
 	}
-	
+
 	function loadXML(filename) {
 		var status = document.getElementById("status");
 		var xhttp = new XMLHttpRequest();
@@ -54,7 +101,8 @@
 			xhttp.open("GET", filename, false);
 			xhttp.send();
 		} catch (e) {
-			status.innerHTML = e + "Achtung: Die HTML-Seite muss durch einen Server ausgeliefert werden."
+			status.innerHTML = e
+					+ "Achtung: Die HTML-Seite muss durch einen Server ausgeliefert werden."
 			return null;
 		}
 		var type = xhttp.getResponseHeader("Content-Type");
@@ -67,17 +115,23 @@
 			return xhttp.responseXML;
 		}
 	}
-	
-	function student(firstname, lastname, matrikelNr, anzahlPruefungen, summeSemesterWochenStunden, notenschnitt, gewichteterSchnitt) {
+
+	function student(firstname, lastname, matrikelNr, anzahlPruefungen,
+			summeSemesterWochenStunden, gewichteterSchnitt) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.matrikelNr = matrikelNr;
 		this.anzahlPruefungen = anzahlPruefungen;
 		this.summeSemesterWochenStunden = summeSemesterWochenStunden;
-		this.notenschnitt = notenschnitt;
 		this.gewichteterSchnitt = gewichteterSchnitt;
+
+		function toString() {
+			var String = firstname + " " + lastname + ", " + matrikelNr + ", "
+					+ anzahlPruefungen + ", " + summeSemesterWochenStunden
+					+ ", " + gewichteterSchnitt;
+			return String;
+		}
 	}
-	
 </script>
 </head>
 <body>

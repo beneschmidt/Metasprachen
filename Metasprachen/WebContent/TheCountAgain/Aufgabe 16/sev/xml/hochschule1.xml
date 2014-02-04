@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hochschule SYSTEM "hochschule.dtd">
+<hochschule>
+
+	<!-- Studenten -->
+	<studenten>
+		<student matrikelnr="M3583821">
+			<name>
+				<nachname>Schmidt</nachname>
+				<vorname>Benedikt</vorname>
+			</name>
+			<adresse art="Heimat">
+				<strasse>Zum Bremmenfeld</strasse>
+				<hausnummer>14</hausnummer>
+				<land>DE</land>
+				<plz>66539</plz>
+				<ort>Neunkirchen</ort>
+			</adresse>
+			<adresse art="Semester">
+				<strasse>Hauptstraße</strasse>
+				<hausnummer>12</hausnummer>
+				<land>Deutschland</land>
+				<plz>66539</plz>
+				<ort>Neunkirchen</ort>
+			</adresse>
+		</student>
+		<student matrikelnr="M3583800">
+			<name>
+				<nachname>Noll</nachname>
+				<vorname>Kevin</vorname>
+			</name>
+			<adresse art="Heimat">
+				<strasse>Parkstraße</strasse>
+				<hausnummer>1</hausnummer>
+				<land>DE</land>
+				<plz>123456</plz>
+				<ort>Heimat</ort>
+			</adresse>
+		</student>
+		<student matrikelnr="M3583801">
+			<name>
+				<nachname>Backes</nachname>
+				<vorname>Christian</vorname>
+			</name>
+			<adresse art="Heimat">
+				<strasse>Lindenallee</strasse>
+				<hausnummer>21</hausnummer>
+				<land>DE</land>
+				<plz>66538</plz>
+				<ort>Neunkirchen</ort>
+			</adresse>
+		</student>
+	</studenten>
+
+	<!-- Dozenten -->
+	<dozenten>
+		<dozent dozentnr="D264">
+			<name>
+				<nachname>Folz</nachname>
+				<vorname>Helmut</vorname>
+			</name>
+		</dozent>
+		<dozent dozentnr="D239">
+			<name>
+				<nachname>Pauly</nachname>
+				<vorname>Wolfgang</vorname>
+			</name>
+		</dozent>
+		<dozent dozentnr="D782">
+			<name>
+				<nachname>Miede</nachname>
+				<vorname>André</vorname>
+			</name>
+		</dozent>
+		<dozent dozentnr="D313">
+			<name>
+				<nachname>Weber</nachname>
+				<vorname>Damian</vorname>
+			</name>
+		</dozent>
+
+	</dozenten>
+
+	<!-- Vorlesungen -->
+	<vorlesungen>
+		<vorlesung vorlesungnr="PIB120" art="Pflicht" dozentnr="D264">
+			<titel>Programmierung 1</titel>
+			<sws>5</sws>
+			<kurzbeschreibung>Einführung in die Programmierung mit Java</kurzbeschreibung>
+		</vorlesung>
+
+		<vorlesung vorlesungnr="PIB110" art="Pflicht" dozentnr="D239">
+			<titel>Betriebssystemeinführung</titel>
+			<sws>2</sws>
+			<link>http://moduldb.htw-saarland.de/cgi-bin/moduldb-c?bkeys=pi&amp;ckeys=pbseinf&amp;lang=de</link>
+		</vorlesung>
+
+		<vorlesung vorlesungnr="PIBWI43" art="Wahl" dozentnr="D782">
+			<titel>Game Design And Development</titel>
+			<sws>2</sws>
+			<kurzbeschreibung>Einführung in die Spieleentwicklung</kurzbeschreibung>
+		</vorlesung>
+		
+		<vorlesung vorlesungnr="PIB423" art="Pflicht" dozentnr="D313">
+			<titel>Systemmanagement und Sicherheit</titel>
+			<sws>2</sws>
+			<link>http://moduldb.htw-saarland.de/cgi-bin/moduldb-c?bkeys=pi&amp;ckeys=sysi&amp;lang=de</link>
+		</vorlesung>
+
+	</vorlesungen>
+
+	<!-- Prüfungen -->
+	<prüfungen>
+		<prüfung datum="2013-10-10" vorlesungnr="PIB120">
+			<note matrikelnr="M3583821">1.5</note>
+			<note matrikelnr="M3583800">1.3</note>
+			<note matrikelnr="M3583801">1.8</note>
+		</prüfung>
+		<prüfung datum="2012-12-12" vorlesungnr="PIB110">
+			<note matrikelnr="M3583821">4</note>
+			<note matrikelnr="M3583800">2</note>
+			<note matrikelnr="M3583801">2.3</note>
+		</prüfung>
+		<prüfung datum="2011-11-11" vorlesungnr="PIBWI43">
+			<note matrikelnr="M3583821">2.3</note>
+			<note matrikelnr="M3583800">1</note>
+			<note matrikelnr="M3583801">5</note>
+		</prüfung>
+		
+		<prüfung datum="2012-01-01" vorlesungnr="PIB423">
+			<note matrikelnr="M3583800">3</note>
+		</prüfung>
+
+	</prüfungen>
+</hochschule>

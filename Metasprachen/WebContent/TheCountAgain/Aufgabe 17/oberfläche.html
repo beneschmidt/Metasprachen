@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Test</title>
+<style type="text/css">
+h1 {
+	font-size: 4em;
+	color: blue;
+}
+
+h2 {
+	font-size: 2em;
+	color: red;
+}
+
+p.fett {
+	font-weight: bold;
+}
+
+table,th,td {
+	border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+	window.onload = showCSS
+
+	function showCSS() {
+
+		// hier werden die geloeschten Styles gespeichert
+		var deletedRules = new Array();
+		var rulesDeleted = 0;
+
+		var body = document.getElementsByTagName("BODY")[0];
+		var heading = document.createElement("h1");
+		heading.appendChild(document.createTextNode("aktuelle Styles"));
+		body.appendChild(heading);
+		var output = document.createElement("p");
+		output.id = "OUTPUT";
+		output.appendChild(document.createTextNode("Test"));
+		body.appendChild(output);
+
+		createCheckBoxesForCurrentCss();
+
+		function createCheckBoxesForCurrentCss() {
+			var styleSheet = document.styleSheets[0];
+			var numberRules = styleSheet.cssRules.length;
+			for ( var i = 0; i < numberRules; i++) {
+				var currentRule = styleSheet.cssRules[i];
+				var selector = currentRule.selectorText;
+
+				var div = document.createElement("div");
+				var checkBox = document.createElement("input");
+				checkBox.type = "checkbox";
+				checkBox.checked = true;
+				checkBox.value = selector;
+				checkBox.onclick = checkboxClicked;
+				div.appendChild(checkBox);
+				div.appendChild(document.createTextNode(selector));
+				body.appendChild(div);
+			}
+		}
+
+		function checkboxClicked(event) {
+			var checkBox = event.target;
+			var selector = checkBox.value;
+			var checked = checkBox.checked;
+
+			if (checked == false) {
+				deleteRule(selector);
+			} else {
+				insertDeletedRule(selector);
+			}
+		}
+
+		function deleteRule(selector) {
+			// suchen und loeschen
+			var styleSheet = document.styleSheets[0];
+			var numberRules = styleSheet.cssRules.length;
+			for ( var i = 0; i < numberRules; i++) {
+				var currentRule = styleSheet.cssRules[i];
+				var currentSelector = currentRule.selectorText;
+
+				if (selector == currentSelector) {
+					var ruleToDelete = new deletedRule(currentSelector,
+							currentRule.cssText);
+					deletedRules[rulesDeleted] = ruleToDelete;
+					rulesDeleted++;
+					styleSheet.deleteRule(i);
+					break;
+				}
+			}
+			updateOutputText();
+		}
+
+		function updateOutputText() {
+			var output = document.getElementById("OUTPUT");
+
+			while (output.childNodes.length >= 1) {
+				output.removeChild(output.firstChild);
+			}
+			for ( var j = 0; j < rulesDeleted; j++) {
+				output.appendChild(document.createTextNode(deletedRules[j].key));
+			}
+		}
+
+		function insertDeletedRule(selector) {
+			// wieder einfuegen
+			for ( var i = 0; i < rulesDeleted; i++) {
+				var nextDeletedRule = deletedRules[i];
+				if (nextDeletedRule.key == selector) {
+					document.styleSheets[0].insertRule(nextDeletedRule.cssText,
+							0);
+					deletedRules.splice(i, 1);
+					rulesDeleted--;
+					break;
+				}
+			}
+			updateOutputText();
+		}
+
+		function deletedRule(key, cssText) {
+			this.key = key;
+			this.cssText = cssText;
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>Überschrift 1</h1>
+	<h2>Überschrift 2</h2>
+	<p>ganz normaler Text</p>
+	<p class="fett">sollte wohl besser fett sein</p>
+	<table>
+		<thead>
+			<tr>
+				<td>#</td>
+				<td>Name</td>
+				<td>Alter</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Paul</td>
+				<td>21</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

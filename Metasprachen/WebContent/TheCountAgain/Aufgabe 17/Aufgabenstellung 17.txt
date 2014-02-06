@@ -1,0 +1,10 @@
+Erstellen Sie ein XHTML-Dokument, das ein CSS-Stylesheet mit mindestens 5 Regeln besitzt. 
+Schreiben Sie ein JavaScript-Programm, das beim Laden des Dokumentes zusätzlich zum vorgegebenen 
+HTML-Inhalt die Regeln des Stylesheets anzeigt. Jeder Regel soll eine Checkbox haben, 
+die zu Beginn angekreuzt ist. Wenn man das Kreuz entfernt, wird die Regel deaktiviert. 
+Wenn man die Maus über den Text einer Regel bewegt, wird die Regel temporär umgeschaltet,
+ d.h. wenn sie aktiv war, wird sie deaktiviert und umgekehrt.
+
+Das Aktivieren und Deaktivieren können Sie z.B. so realisieren, 
+dass Sie die Regel zu dem aktuellen Stylesheet hinzufügen bzw. aus ihm entfernen.
+

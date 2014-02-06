@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Beseitigen Sie alle Fehler! -->
 <hochschule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="A15.xsd">
@@ -32,11 +32,11 @@
 			<kurzbeschreibung>cool</kurzbeschreibung>
 		</vorlesung>
 	</vorlesungen>
-	<prüfungen>
-		<prüfung datum="11.02.2014" vorlesungnr="V01">
+	<prÃ¼fungen>
+		<prÃ¼fung datum="11.02.2014" vorlesungnr="V01">
 			<note matrikelnr="3583767">
 				20
 			</note>
-		</prüfung>
-	</prüfungen>
+		</prÃ¼fung>
+	</prÃ¼fungen>
 </hochschule>

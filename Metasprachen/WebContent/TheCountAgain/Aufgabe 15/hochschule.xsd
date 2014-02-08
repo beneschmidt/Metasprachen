@@ -19,7 +19,7 @@
 			<xsd:selector xpath=".//note" />
 			<xsd:field xpath="@matrikelnr" />
 		</xsd:keyref>
-		
+
 		<xsd:key name="dozentNrKey">
 			<xsd:selector xpath=".//dozent" />
 			<xsd:field xpath="@dozentnr" />
@@ -28,7 +28,7 @@
 			<xsd:selector xpath=".//vorlesung" />
 			<xsd:field xpath="@dozentnr" />
 		</xsd:keyref>
-		
+
 		<xsd:key name="vorlesungNrKey">
 			<xsd:selector xpath=".//vorlesung" />
 			<xsd:field xpath="@vorlesungnr" />
@@ -127,7 +127,8 @@
 					<xsd:element name="link" type="xsd:anyURI" />
 				</xsd:choice>
 			</xsd:sequence>
-			<xsd:attribute name="vorlesungnr" type="xsd:string" use="required" />
+			<xsd:attribute name="vorlesungnr" type="xsd:string"
+				use="required" />
 			<xsd:attribute name="art" use="required">
 				<xsd:simpleType>
 					<xsd:restriction base="xsd:string">
@@ -148,10 +149,11 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
-
+	
 	<xsd:element name="prüfung">
 		<xsd:complexType>
 			<xsd:sequence>
+				<!-- SONDERFALL: einfacher Typ mit Attribut -->
 				<xsd:element name="note" minOccurs="0" maxOccurs="unbounded">
 					<xsd:complexType>
 						<xsd:simpleContent>
@@ -163,7 +165,8 @@
 				</xsd:element>
 			</xsd:sequence>
 			<xsd:attribute name="datum" type="xsd:string" use="required" />
-			<xsd:attribute name="vorlesungnr" type="xsd:string" use="required" />
+			<xsd:attribute name="vorlesungnr" type="xsd:string"
+				use="required" />
 		</xsd:complexType>
 	</xsd:element>
 

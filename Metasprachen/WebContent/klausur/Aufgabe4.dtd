@@ -10,11 +10,13 @@
 <!-- Attribute -->
 <!ATTLIST einmal
 		name		CDATA 	#REQUIRED
-		typ			CDATA 	#REQUIRED
+		typ			CDATA 	#REQUIRED 
 		optAuswahl	(a | b) #IMPLIED
-		festerWert	CDATA 	#FIXED "Fester Wert">
+		festerWert	CDATA 	#FIXED "Fester Wert"
+		auswahl 	(true | false) "false"> <!-- Auswahl mit Default-Wert -->
 
 <!-- gemischter Inhalt -->
+<!-- ACHTUNG: entweder Text oder bestimmte Anzahl Kindelemente GEHT NICHT! NUR GEMISCHTER INHALT -->
 <!-- Achtung, PCDATA immer zuerst, und nach der Klammer ein * -->
 <!ELEMENT gemischterInhalt (#PCDATA | wasAnderes)*>
 <!ELEMENT wasAnderes (#PCDATA)>
@@ -29,4 +31,7 @@
 <!ELEMENT vorname (#PCDATA)>
 <!ELEMENT nachname (#PCDATA)>
 <!ELEMENT matrnr (#PCDATA)>
+
+<!-- CDATA: alles , auch Leerzeichen -->
+<!-- NMTOKEN: Buchstaben, Ziffern, Punkt, Doppelpunkt, Bindestrich, Unterstrich, keine Leerzeichen -->
 

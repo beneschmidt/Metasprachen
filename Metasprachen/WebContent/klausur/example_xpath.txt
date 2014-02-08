@@ -1,0 +1,28 @@
+XPath-Beispiele Skript:
+
+/
+/child::authors
+/child::authors/child::author
+/descendant::author
+/descendant-or-self::author
+/descendant::name
+/descendant::*
+/descendant::node()
+/child::authors/child::author/child::publisher/parent::*
+/child::authors/child::author/child::publisher/ancestor::*
+/child::authors/child::author/child::name/following-sibling::*
+/child::authors/child::author/child::publisher/preceding-sibling::*
+/child::authors/child::author/child::name/following::*
+/child::authors/child::author/child::publisher/preceding::*
+/descendant::author/attribute::*
+
+/authors/author[2]
+/authors/author[position() <= 2]
+/authors/author[position() <= 2][@period = "modern"]
+/authors/author[position() <= 2 and @period = "modern"]
+/authors/author[@period = "modern"][position() <= 2]
+/authors/author[@period = "modern" and position() <= 2 ]
+/authors/author[position() <= 3 and @period = "modern"]
+/authors/author[position() <= 3 and @period = "modern"][position() = 2]
+/authors/author[position() <= 3 and @period = "modern"][2]
+//author[@born < sum(//author/@born) div count(//author[@born])]

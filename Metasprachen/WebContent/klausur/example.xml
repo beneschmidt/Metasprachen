@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- externe DTD einbinden, Wurzelknoten "wurzel" -->
 <!DOCTYPE benutzer [
 <!ELEMENT name (vorname, nachname)*>
 <!ELEMENT vorname (#PCDATA)>

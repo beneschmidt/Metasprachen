@@ -30,9 +30,11 @@
 					<td>Prüfungen</td>
 				</tr>
 			</thead>
-			<xsl:apply-templates select="student">
-				<xsl:sort select="name" />
-			</xsl:apply-templates>
+			<tbody>
+				<xsl:apply-templates select="student">
+					<xsl:sort select="name" />
+				</xsl:apply-templates>
+			</tbody>
 		</table>
 	</xsl:template>
 
@@ -50,12 +52,15 @@
 			<td>
 				<xsl:value-of select="@matrikelnr" />
 			</td>
+			<!-- nur Heimatadressen suchen -->
 			<td>
 				<xsl:value-of select="adresse[@art='Heimat']" />
 			</td>
+			<!-- nur Semesteradresse suchen -->
 			<td>
 				<xsl:value-of select="adresse[@art='Semester']" />
 			</td>
+			<!-- alle Noten finden, die zur dieser Nummer gehören -->
 			<td>
 				<xsl:apply-templates select="../../prüfungen/prüfung/note[@matrikelnr=current()/@matrikelnr]" />
 			</td>
@@ -75,6 +80,8 @@
 		,
 	</xsl:template>
 
+	<!-- NOTEN -->
+
 	<xsl:template match="note">
 		<xsl:number format="I. " value="position()" />
 		<xsl:value-of select="../@datum" />
@@ -82,6 +89,8 @@
 		<xsl:value-of select="." />
 		<br />
 	</xsl:template>
+
+	<!-- DOZENTEN -->
 
 	<xsl:template match="dozenten">
 		<h1>Dozenten</h1>
@@ -94,13 +103,16 @@
 					<td>Dozentnummer</td>
 				</tr>
 			</thead>
-			<xsl:apply-templates select="dozent">
-				<xsl:sort select="name" />
-			</xsl:apply-templates>
+			<tbody>
+				<xsl:apply-templates select="dozent">
+					<xsl:sort select="name" />
+				</xsl:apply-templates>
+			</tbody>
 		</table>
 	</xsl:template>
 
 	<xsl:template match="dozent">
+		<!-- Kurzform für xsd:value-of, hier wesentlich einfacher in dem Tag zu verwenden -->
 		<tr id="{@dozentnr}">
 			<td>
 				<xsl:number format="1. " value="position()" />
@@ -117,6 +129,7 @@
 		</tr>
 	</xsl:template>
 
+	<!-- VORLESUNGEN -->
 
 	<xsl:template match="vorlesungen">
 		<h1>Vorlesungen</h1>
@@ -132,9 +145,11 @@
 					<td>Dozentnachname</td>
 				</tr>
 			</thead>
-			<xsl:apply-templates select="vorlesung">
-				<xsl:sort select="titel" />
-			</xsl:apply-templates>
+			<tbody>
+				<xsl:apply-templates select="vorlesung">
+					<xsl:sort select="titel" />
+				</xsl:apply-templates>
+			</tbody>
 		</table>
 	</xsl:template>
 
@@ -161,6 +176,7 @@
 				</a>
 			</td>
 			<td>
+			<!-- Dozentname mit Anker über die Dozentnummer -->
 				<a href="#{@dozentnr}">
 					<xsl:value-of select="id(@dozentnr)/name/nachname" />
 				</a>

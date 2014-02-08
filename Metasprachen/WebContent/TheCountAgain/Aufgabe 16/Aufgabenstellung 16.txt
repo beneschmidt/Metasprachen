@@ -1,0 +1,6 @@
+Erstellen Sie eine XHTML-Seite mit einem zu Beginn leeren body, die beim Laden ein JavaScript-Programm ausführt, 
+das ein XML-Dokument gemäss bsp/dtd/hochschule.dtd einliest, den mit der Anzahl Semesterwochenstunden gewichteten Notendurchschnitt 
+jedes Studenten ermittelt und den body der XHTML-Seite mit folgende Daten pro Student füllt: 
+Name, Vorname, Matrikelnummer, Anzahl erfolgreich abgelegter Prüfungen, 
+Summe der Semesterwochenstunden der Vorlesungen, zu denen die Prüfung bestanden wurde und Notendurchschnitt. 
+Die Studierenden sollen im Dokument nach dem Notendurchschnitt sortiert sein.

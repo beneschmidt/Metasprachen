@@ -1,0 +1,14 @@
+<!ELEMENT catalog (buch*)>
+<!ELEMENT buch (autor*, titel, untertitel?, verlag, Datum_der_Aufnahme, bemerkung?)>
+
+<!ELEMENT autor (vorname, nachname)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT untertitel (#PCDATA)>
+<!ELEMENT verlag (#PCDATA)>
+<!ELEMENT Datum_der_Aufnahme (#PCDATA)>
+<!ELEMENT bemerkung (#PCDATA)>
+
+<!ATTLIST buch signatur CDATA #REQUIRED>

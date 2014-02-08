@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Mozilla CSS Getting Started - JavaScript demonstration</title>
+<style>
+#div {
+	width: 20em;
+	height: 5em;
+	border: 2px inset gray;
+	margin-bottom: 1em;
+}
+
+div+p {
+	font-weight: bold;
+}
+
+td {
+	border: medium solid blue;
+}
+
+test {
+	color: black;
+	background-color: aqua;
+}
+</style>
+<script>
+	window.onload = getStyles;
+
+	function getStyles() {
+		var styleSheet = document.styleSheets[0];
+		var body = document.getElementById("test");
+		var numberRules = styleSheet.cssRules.length;
+
+		var deletedRules = new Array();
+		var rulesDeleted = 0;
+		lg("Number of rules: " + numberRules);
+
+		for ( var i = 0; i < numberRules; i++) {
+			var currentRule = styleSheet.cssRules[i];
+			var checkbox = document.createElement("input");
+			var selectorText = currentRule.selectorText;
+			var div = document.createElement("div");
+			checkbox.type = "checkbox";
+			checkbox.checked = true;
+			checkbox.value = selectorText;
+			checkbox.onclick = onClick;
+
+			div.appendChild(checkbox);
+			div.addEventListener("mouseenter", mouseEnter);
+			div.addEventListener("mouseleave", mouseLeave);
+			div.appendChild(document.createTextNode(selectorText));
+			body.appendChild(div);
+
+		}
+
+		function mouseEnter(event) {
+			var checkBox = event.target.firstChild;
+			var selector = checkBox.value;
+			var checked = checkBox.checked;
+
+			if (checked == false) {
+				insertDeletedRule(selector);
+			} else {
+				deleteRule(selector);
+			}
+		}
+
+		function mouseLeave(event) {
+			var checkBox = event.target.firstChild;
+			var selector = checkBox.value;
+			var checked = checkBox.checked;
+
+			if (checked == false) {
+				deleteRule(selector);
+			} else {
+				insertDeletedRule(selector);
+			}
+		}
+
+		function lg(text) {
+			var p = document.createElement("p");
+			p.textContent = text;
+			p.setAttribute("class", "log");
+			document.body.appendChild(p);
+		}
+
+		function deleteRule(selector) {
+			// suchen und loeschen
+			var styleSheet = document.styleSheets[0];
+			var numberRules = styleSheet.cssRules.length;
+			for ( var i = 0; i < numberRules; i++) {
+				var currentRule = styleSheet.cssRules[i];
+				var currentSelector = currentRule.selectorText;
+
+				if (selector == currentSelector) {
+					var ruleToDelete = new deletedRule(currentSelector, currentRule.cssText);
+					deletedRules[rulesDeleted] = ruleToDelete;
+					rulesDeleted++;
+					styleSheet.deleteRule(i);
+					break;
+				}
+			}
+		}
+
+		function insertDeletedRule(selector) {
+			// wieder einfuegen
+			for ( var i = 0; i < rulesDeleted; i++) {
+				var nextDeletedRule = deletedRules[i];
+				if (nextDeletedRule.key == selector) {
+					document.styleSheets[0].insertRule(nextDeletedRule.cssText, 0);
+					deletedRules.splice(i, 1);
+					rulesDeleted--;
+					break;
+				}
+			}
+		}
+
+		function deletedRule(key, cssText) {
+			this.key = key;
+			this.cssText = cssText;
+		}
+	}
+
+	var onClick = function(event) {
+
+	}
+
+	var changeBg = function(event) {
+		console.log("method called");
+		var me = event.target;
+		var square = document.getElementById("square");
+		square.style.backgroundColor = "#ffaa44";
+		me.setAttribute("disabled", "disabled");
+		setTimeout(clearDemo, 2000);
+	}
+
+	var changeColor = function(event) {
+		var p = document.getElementById("test");
+		p.style.color = "#FF0000";
+	}
+
+	function clearDemo(button) {
+		var square = document.getElementById("square");
+		var button = document.querySelector("button");
+		square.style.backgroundColor = "transparent";
+		button.removeAttribute("disabled");
+	}
+</script>
+</head>
+
+<body>
+	<p id="test">
+		Hier kommen die Regeln: <br />
+	</p>
+	<h1>JavaScript sample</h1>
+	<h2>veraendert durch KN</h2>
+	<div id="div">wurst</div>
+	<p>text yo</p>
+	<table>
+		<tr>
+			<td>#</td>
+			<td>Name</td>
+			<td>Alter</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Paul</td>
+			<td>21</td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>MS Ueb16 KN</title>
+
+<script type="text/javascript">
+	window.onload = start;
+
+	//hier gehts los
+	function start() {
+		var xmlDoc = loadXML("hochschule.xml");
+
+		var body = document.getElementsByTagName("BODY")[0];
+		var br = document.createElement("br")
+		var t = document.createTextNode("Studentenliste: ");
+		body.appendChild(t);
+		body.appendChild(br);
+
+		if (xmlDoc == null) {
+			var t = document.createTextNode("nicht gefunden");
+			body.appendChild(t);
+		}
+
+		// Serialisiere das XML-Dokument zu einem String
+		// var s = new XMLSerializer();
+		// xml = s.serializeToString(xmlDoc);
+		// document.getElementById("out").textContent = xml;
+
+		// Erstelle im HTML-Dokument eine ungeordnete Liste der Titel der Studenten
+		students = xmlDoc.getElementsByTagName("student");
+
+		var studentenListe = [];
+		//studenten durchgehen
+		for (i = 0; i < students.length; i++) {
+			var matrikelNr = students[i].getAttribute("matrikelnr");
+			var lastname = students[i].getElementsByTagName("nachname")[0].childNodes[0].nodeValue;
+			var firstname = students[i].getElementsByTagName("vorname")[0].childNodes[0].nodeValue;
+
+			var summeSWS = 0;
+			var notenschnitt = 0;
+			var notensumme = 0;
+			var mitgeschrieben = 0;
+			var gewichteterSchnitt = 0;
+			
+			var pruefungen = xmlDoc.getElementsByTagName("prüfung");
+			//Pruefungen durchgehen
+			for (o = 0; o < pruefungen.length; o++) {
+				var vorlesungsNr = pruefungen[o].getAttribute("vorlesungnr");
+				var studentenInPruefung = pruefungen[o].getElementsByTagName("note");
+				//studenten fuer jede Pruefung durchgehen
+				for (x = 0; x < studentenInPruefung.length; x++) {
+					//wenn Student in Pruefung
+					if(studentenInPruefung[x].getAttribute("matrikelnr").indexOf(matrikelNr) != -1){
+						//Wenn Student bestanden hat
+						if(parseInt(studentenInPruefung[x].childNodes[0].nodeValue) > 7){
+							var note = parseInt(studentenInPruefung[x].childNodes[0].nodeValue);
+							notensumme += note;
+							mitgeschrieben++;
+							var vorlesungen = xmlDoc.getElementsByTagName("vorlesung");
+							//Vorlesungen durchlaufen um die SWS zu den Pruefungen herauszufinden
+							for(y = 0; y < vorlesungen.length; y++){
+								//wenn treffer
+								if(vorlesungen[y].getAttribute("vorlesungnr").indexOf(vorlesungsNr) != -1){
+									//dann aufrechnen
+									var sws = parseInt(vorlesungen[y].getElementsByTagName("sws")[0].childNodes[0].nodeValue);
+									summeSWS += sws;
+									gewichteterSchnitt += sws*note;
+								}
+							}
+						}
+					}
+				}
+			}
+			var notenschnitt = notensumme/mitgeschrieben;
+			gewichteterSchnitt = gewichteterSchnitt/summeSWS;
+			//neuen studenten anlegen und auf den stack pushen
+			var stud = new student(firstname, lastname, matrikelNr, mitgeschrieben, summeSWS, notenschnitt, gewichteterSchnitt);
+			studentenListe.push(stud);
+		}
+		
+		//stack (liste) sortieren
+		studentenListe.sort(sortStudents);
+
+		//ausgabe der sortierten liste
+		var ul = document.createElement("ul")
+		for (j = 0; j < studentenListe.length; j++) {
+
+			var lastname = document.createTextNode(studentenListe[j].lastname);
+			var firstname = document.createTextNode("Kompletter Name: " + studentenListe[j].firstname + " ");
+			var matrikelNr = document.createTextNode(studentenListe[j].matrikelNr);
+			var anzahlPruefungen = document.createTextNode("Mitgeschriebene bestandene Pruefungen: "+studentenListe[j].anzahlPruefungen);
+			var notenschnitt = document.createTextNode("Notenschnitt: "+studentenListe[j].notenschnitt);
+			var summeSWS = document.createTextNode("Summe SWS bestandener Vorlesungen: " + studentenListe[j].summeSemesterWochenStunden);
+			var gewichteterSchnitt = document.createTextNode("Gewichteter Schnitt: " + studentenListe[j].gewichteterSchnitt);
+			
+			var subul = document.createElement("ul");
+			var li = document.createElement("li");
+			var subli = document.createElement("li");
+			var subli2 = document.createElement("li");
+			var subli3 = document.createElement("li");
+			var subli4 = document.createElement("li");
+			var subli5 = document.createElement("li");
+
+			li.appendChild(matrikelNr);
+			li.appendChild(subul);
+			subli.appendChild(firstname);
+			subli.appendChild(lastname);
+			subul.appendChild(subli);
+			subli2.appendChild(anzahlPruefungen);
+			subli3.appendChild(notenschnitt);
+			subli4.appendChild(summeSWS);
+			subli5.appendChild(gewichteterSchnitt);
+			subul.appendChild(subli2);
+			subul.appendChild(subli3);
+			subul.appendChild(subli4);
+			subul.appendChild(subli5);
+			ul.appendChild(li);
+		}
+
+		body.appendChild(ul);
+	}
+
+	function loadXML(filename) {
+		var status = document.getElementById("status");
+		var xhttp = new XMLHttpRequest();
+		try {
+			xhttp.open("GET", filename, false);
+			xhttp.send();
+		} catch (e) {
+			status.innerHTML = e + "Achtung: Die HTML-Seite muss durch einen Server ausgeliefert werden."
+			return null;
+		}
+		var type = xhttp.getResponseHeader("Content-Type");
+		if (type.indexOf("xml") == -1) {
+			return null;
+		}
+		if (xhttp.status != 200) {
+			return null;
+		} else {
+			return xhttp.responseXML;
+		}
+	}
+
+	function student(firstname, lastname, matrikelNr, anzahlPruefungen, summeSemesterWochenStunden, notenschnitt, gewichteterSchnitt) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.matrikelNr = matrikelNr;
+		this.anzahlPruefungen = anzahlPruefungen;
+		this.summeSemesterWochenStunden = summeSemesterWochenStunden;
+		this.notenschnitt = notenschnitt;
+		this.gewichteterSchnitt = gewichteterSchnitt;
+	}
+
+	function sortStudents(a, b) {
+		return a.gewichteterSchnitt - b.gewichteterSchnitt;
+	}
+
+	// 	function followNode(node) {
+	// 		showNodeInfo(node);
+	// 		if (node.childNodes.length > 0) {
+	// 			followNode(node.firstChild);
+	// 		}
+	// 		if (node.nextSibling) {
+	// 			followNode(node.nextSibling);
+	// 		}
+	// 	}
+
+	// 	function showNodeInfo(node) {
+	// 		var info = "";
+
+	// 		info += " nodeName: " + node.nodeName;
+	// 		info += " nodeType: " + node.nodeType;
+	// 		info += " nodeValue: [" + node.nodeValue + "]";
+	// 		if (node.nodeType == node.ELEMENT_NODE) {
+	// 			for (i = 0; i < node.attributes.length; i++) {
+	// 				attr = node.attributes[i];
+	// 				info += " attributeName: " + attr.name;
+	// 				info += " attributeValue: " + attr.value;
+	// 			}
+	// 		}
+	// 		document.getElementById("nodeinfo").innerHTML += info + "\n";
+	// 	}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

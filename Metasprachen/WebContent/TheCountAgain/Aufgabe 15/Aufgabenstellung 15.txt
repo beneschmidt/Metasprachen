@@ -1,0 +1,7 @@
+Erstellen Sie für die Daten gemäß bsp/dtd/hochschule.dtd (vgl. Aufgabe 5) 
+ein möglichst restriktives XML-Schema. 
+Verwenden Sie statt IDs und IDREFS key’s und keyref’s. 
+Sorgen Sie dafür, dass die Schlüssel eindeutig für ihren jeweiligen Anwendungsbereich sind. 
+Stellen Sie ebenfalls sicher, dass maximal eine Heimatanschrift und maximal eine 
+Semesteranschrift vorhanden ist. 
+Testen Sie das Schema anhand richtiger und falscher Dokumente.

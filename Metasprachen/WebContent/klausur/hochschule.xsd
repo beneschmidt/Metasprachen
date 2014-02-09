@@ -189,6 +189,8 @@
 			<xsd:minInclusive value="1000000" />
 			<xsd:maxInclusive value="9999999" />
 			<xsd:fractionDigits value="0"/>
+			<!-- für erzwungene Anzahl an Nachkommastellen bruacht man pattern -->
+			<!-- <xsd:pattern value="-?\d?\d\.\d"/> -->
 		</xsd:restriction>
 	</xsd:simpleType>
 

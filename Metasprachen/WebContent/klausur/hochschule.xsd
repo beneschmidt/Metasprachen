@@ -185,9 +185,10 @@
 
 
 	<xsd:simpleType name="tMatrikelnr">
-		<xsd:restriction base="xsd:nonNegativeInteger">
+		<xsd:restriction base="xsd:decimal">
 			<xsd:minInclusive value="1000000" />
 			<xsd:maxInclusive value="9999999" />
+			<xsd:fractionDigits value="0"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 

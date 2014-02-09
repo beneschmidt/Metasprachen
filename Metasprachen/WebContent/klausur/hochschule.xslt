@@ -87,6 +87,8 @@
 		<xsl:value-of select="../@datum" />
 		=
 		<xsl:value-of select="." />
+		<!-- DATUMS-FORMATIERUNG -->
+		<!-- <xsl:value-of select="concat(substring(@Datum,9,2),'.',substring(@Datum,6,2),'.',substring(@Datum,1,4))"/> -->
 		<br />
 	</xsl:template>
 

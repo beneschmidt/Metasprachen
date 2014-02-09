@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="utf-8" />
+<title>Aufgabe 16</title>
+<script type="text/javascript">
+	window.onload = start;
+
+	function start() {
+		var xml = loadXML("hochschule.xml");
+
+		var body = document.getElementsByTagName("BODY")[0];
+		var br = document.createElement("br");
+		var titleStudentenliste = document.createTextNode("Studentenliste");
+
+		body.appendChild(br).appendChild(titleStudentenliste);
+
+		if (xml == null) {
+			body.appendChild(document
+					.createTextNode("leider XML nicht gefunden"));
+		}
+
+		var allStudenten = xml.getElementsByTagName("student");
+
+		// Array für Studenten anlegen
+		var studentenListe = [];
+		for (i = 0; i < allStudenten.length; i++) {
+			var currentStudent = allStudenten[i];
+			var matrikelNr = currentStudent.getAttribute("matrikelnr");
+			var vorname = currentStudent.getElementsByTagName("vorname")[0].childNodes[0].nodeValue;
+			var nachname = currentStudent.getElementsByTagName("nachname")[0].childNodes[0].nodeValue;
+
+			var sumOfGrades = 0;
+			var numberOfGrades = 0;
+			var gSchnitt = 0;
+			var sumOfSws = parseInt(0);
+
+			var pruefungen = xml.getElementsByTagName("pruefung");
+			for (j = 0; j < pruefungen.length; j++) {
+				var currentPruefung = pruefungen[j];
+				var vorlesungnrOfCurrentPruefung = currentPruefung
+						.getAttribute("vorlesungnr");
+
+				var allGrades = currentPruefung.getElementsByTagName("note");
+				var currentGradeValue = 0;
+				for (k = 0; k < allGrades.length; k++) {
+					var currentGrade = allGrades[k];
+					if (currentGrade.getAttribute("matrikelnr") == matrikelNr) {
+						currentGradeValue = currentGrade.childNodes[0].nodeValue;
+						if (currentGradeValue <= 7) {
+							currentGradeValue = 0;
+						}
+						break;
+					}
+				}
+				if (currentGradeValue != 0) {
+					sumOfGrades += currentGradeValue;
+					numberOfGrades++;
+
+					var allVorlesungen = xml.getElementsByTagName("vorlesung");
+					for (m = 0; m < allVorlesungen.length; m++) {
+						var currentVorlesung = allVorlesungen[m];
+						if (currentVorlesung.getAttribute("vorlesungnr") == vorlesungnrOfCurrentPruefung) {
+							var sws = parseInt(currentVorlesung
+									.getElementsByTagName("sws")[0].childNodes[0].nodeValue);
+							gSchnitt += currentGradeValue * sws;
+							sumOfSws += sws;
+						}
+					}
+				}
+			}
+
+			gSchnitt /= sumOfSws;
+
+			var htmlStudent = new student(vorname, nachname, matrikelNr,
+					numberOfGrades, sumOfSws, gSchnitt);
+			studentenListe.push(htmlStudent);
+		}
+
+		studentenListe.sort(function(a, b) {
+			return a.gewichteterSchnitt - b.gewichteterSchnitt;
+		});
+
+		var table = document.createElement("table");
+		table.setAttribute("border", "1");
+
+		// Header der Tabelle
+		var thead = document.createElement("thead");
+		thead.appendChild(header());
+		table.appendChild(thead);
+
+		var j;
+		for (j = 0; j < studentenListe.length; j++) {
+
+			var tableRow = studentToTableRow(studentenListe[j]);
+			table.appendChild(tableRow);
+		}
+
+		body.appendChild(table);
+	}
+
+	function loadXML(filename) {
+		var status = document.getElementById("status");
+		var xhttp = new XMLHttpRequest();
+		try {
+			xhttp.open("GET", filename, false);
+			xhttp.send();
+		} catch (e) {
+			status.innerHTML = e
+					+ "Achtung: Die HTML-Seite muss durch einen Server ausgeliefert werden."
+			return null;
+		}
+		var type = xhttp.getResponseHeader("Content-Type");
+		if (type.indexOf("xml") == -1) {
+			return null;
+		}
+		if (xhttp.status != 200) {
+			return null;
+		} else {
+			return xhttp.responseXML;
+		}
+	}
+
+	function student(firstname, lastname, matrikelNr, anzahlPruefungen,
+			summeSemesterWochenStunden, gewichteterSchnitt) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.matrikelNr = matrikelNr;
+		this.anzahlPruefungen = anzahlPruefungen;
+		this.summeSemesterWochenStunden = summeSemesterWochenStunden;
+		this.gewichteterSchnitt = gewichteterSchnitt;
+	}
+
+	function studentToTableRow(student) {
+		var tr = document.createElement("tr");
+		tr.appendChild(createTdElement(student.firstname));
+		tr.appendChild(createTdElement(student.lastname));
+		tr.appendChild(createTdElement(student.matrikelNr));
+		tr.appendChild(createTdElement(student.anzahlPruefungen));
+		tr.appendChild(createTdElement(student.summeSemesterWochenStunden));
+		tr.appendChild(createTdElement(student.gewichteterSchnitt));
+		return tr;
+	}
+
+	function header() {
+		var tr = document.createElement("tr");
+		tr.appendChild(createTdElement("Vorname"));
+		tr.appendChild(createTdElement("Nachname"));
+		tr.appendChild(createTdElement("Matrikelnummer"));
+		tr.appendChild(createTdElement("Anzahl best. Prüfungen"));
+		tr.appendChild(createTdElement("Summe SWS"));
+		tr.appendChild(createTdElement("Gewichteter Schnitt"));
+		return tr;
+	}
+
+	function createTdElement(text) {
+		var fntd = document.createElement("td");
+		fntd.appendChild(document.createTextNode(text));
+		return fntd;
+	}
+</script>
+</head>
+<body>
+</body>
+</html>

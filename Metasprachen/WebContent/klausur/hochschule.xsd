@@ -162,7 +162,7 @@
 					<xsd:complexType>
 						<xsd:simpleContent>
 							<xsd:extension base="xsd:positiveInteger">
-								<xsd:attribute name="matrikelnr" type="tMatrikelnr" />
+								<xsd:attribute name="matrikelnr" type="tMatrikelnr" use="required" />
 							</xsd:extension>
 						</xsd:simpleContent>
 					</xsd:complexType>
@@ -177,12 +177,20 @@
 
 	<!-- TYPEN -->
 
+	<!-- Gemischter Inhalt mit bestimmter Anzahl Kindelemente -->
+	<xsd:complexType name="tKomplex" mixed="true">
+		<!-- es darf hier auch keine Wiederholung vorkommen, dann steht nur Text da -->
+		<xsd:sequence minOccurs="0">
+			<xsd:element minOccurs="2" maxOccurs="unbounded" name="subElement"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
 	<xsd:simpleType name="tDozentnummer">
 		<xsd:restriction base="xsd:string">
 			<xsd:pattern value="D\d{3}"></xsd:pattern>
 		</xsd:restriction>
 	</xsd:simpleType>
-
 
 	<xsd:simpleType name="tMatrikelnr">
 		<xsd:restriction base="xsd:decimal">
